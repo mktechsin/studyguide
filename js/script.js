@@ -118,6 +118,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // -----------------------
+    // Collapsible list
+    // -----------------------
+    document.querySelectorAll('.toggle').forEach(t=>{
+        t.addEventListener('click',()=>{
+            t.classList.toggle('open');
+            let next=t.nextElementSibling;
+            if(next) next.classList.toggle('collapsed');
+        });
+    });
+
+    // -----------------------
     // Collapsible Blocks
     // -----------------------
     document.addEventListener("click", e => {

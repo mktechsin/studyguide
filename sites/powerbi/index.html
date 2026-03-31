@@ -25,10 +25,509 @@
         </div>
 
         <!-- Pages -->
-        <div id="home" class="page active"><h1>Welcome</h1><p>This is the Power BI guide. Use the sidebar to navigate pages.</p></div>
-        <div id="powerbi" class="page" contenteditable="true">
-            <h1>Power BI Notes</h1>
-            <div class="box warning">Refresh schedule is important for dashboards.</div>
+        <div id="home" class="page active">
+            <h1>Welcome</h1>
+            <p>This is the Power BI guide.</p>
+            <h1>How to use</h1>
+            <p>Use the sidebar to navigate pages.</p>
+            <p>Search text in page using search bar.</p>
+            <p>Add notes and export to pdf using PDF button.</p>
+        </div>
+        <div id="daxfunctions" class="page" contenteditable="true">
+            <h1>DAX Functions</h1>
+            <p>DAX (Data Analysis Expressions) is a formula expression language used in Power BI, Excel Power Pivot, and Analysis Services to create custom calculations, measures, and calculated columns.</p>
+            <h1>Aggregates</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Average Functions -->
+                    <tr><td class="box note"><strong>Average Functions</strong></td></tr>
+                    <tr><td><strong>⚡AVERAGE</strong>(column) → Decimal</td><td>Returns the arithmetic mean of a numeric column. <br/><strong>Includes:</strong> Numeric values. <br/><strong>Ignores:</strong> Text and blanks.</td></tr>
+                    <tr><td><strong>⚡AVERAGEA</strong>(column) → Decimal</td><td>Returns average treating non-numeric values as 0, logical as TRUE = 1, and FALSE = 0. <br/><strong>Includes:</strong> Text, logical, and numeric values. <br/><strong>Ignores:</strong> Blanks.</td></tr>
+                    <tr><td><strong>⚡AVERAGEX</strong>(table, expression) → Decimal</td><td>Returns average of an expression evaluated over a table. <br/><strong>Includes:</strong> Expression results per row. <br/><strong>Ignores:</strong> Blanks from the expression.</td></tr>
+
+                    <!-- Count Functions -->
+                    <tr><td class="box note"><strong>Count Functions</strong></td></tr>
+                    <tr><td><strong>⚡COUNT</strong>(column) → Integer</td><td>Counts numeric values in a column. <br/><strong>Includes:</strong> Numeric values. <br/><strong>Ignores:</strong> Text, logical, and blanks.</td></tr>
+                    <tr><td><strong>⚡COUNTA</strong>(column) → Integer</td><td>Counts non-blank values. <br/><strong>Includes:</strong> All non-blank values. <br/><strong>Ignores:</strong> Blanks.</td></tr>
+                    <tr><td><strong>⚡COUNTAX</strong>(table, expression) → Integer</td><td>Counts rows where expression evaluates to a non-blank value. <br/><strong>Includes:</strong> Non-blank expression results. <br/><strong>Ignores:</strong> Blank expression results.</td></tr>
+                    <tr><td><strong>⚡COUNTX</strong>(table, expression) → Integer</td><td>Counts rows where the expression evaluates to a numeric value. <br/><strong>Includes:</strong> Numeric values from the expression. <br/><strong>Ignores:</strong> Non-numeric and blank values.</td></tr>
+                    <tr><td><strong>COUNTBLANK</strong>(column) → Integer</td><td>Counts blank values in a column. <br/><strong>Includes:</strong> Blank values. <br/><strong>Ignores:</strong> Non-blank values.</td></tr>
+                    <tr><td><strong>⚡COUNTROWS</strong>(table) → Integer</td><td>Counts the number of rows in a table. <br/><strong>Includes:</strong> All rows. <br/><strong>Ignores:</strong> Blank values are counted but blank rows are included.</td></tr>
+                    <tr><td><strong>⚡DISTINCTCOUNT</strong>(column) → Integer</td><td>Counts distinct non-blank values in a column. <br/><strong>Includes:</strong> Unique non-blank values. <br/><strong>Ignores:</strong> Duplicates and blanks.</td></tr>
+                    <tr><td><strong>DISTINCTCOUNTNOBLANK</strong>(column) → Integer</td><td>Counts distinct values, ignoring blanks. <br/><strong>Includes:</strong> Unique values. <br/><strong>Ignores:</strong> Blank values.</td></tr>
+
+                    <!-- Max/Min Functions -->
+                    <tr><td class="box note"><strong>Max/Min Functions</strong></td></tr>
+                    <tr><td><strong>⚡MAX</strong>(column) → Numeric</td><td>Returns the largest value in a column. <br/><strong>Includes:</strong> Numeric values. <br/><strong>Ignores:</strong> Non-numeric and blank values.</td></tr>
+                    <tr><td><strong>⚡MAXA</strong>(column) → Numeric</td><td>Returns the largest value in a column, treating non-numeric as 0 and logical as TRUE = 1, FALSE = 0. <br/><strong>Includes:</strong> Text, logical, and numeric values. <br/><strong>Ignores:</strong> Blanks.</td></tr>
+                    <tr><td><strong>⚡MAXX</strong>(table, expression) → Numeric</td><td>Returns the largest value of an expression evaluated over a table. <br/><strong>Includes:</strong> Expression results. <br/><strong>Ignores:</strong> Blank or non-numeric results.</td></tr>
+                    <tr><td><strong>⚡MIN</strong>(column) → Numeric</td><td>Returns the smallest value in a column. <br/><strong>Includes:</strong> Numeric values. <br/><strong>Ignores:</strong> Non-numeric and blank values.</td></tr>
+                    <tr><td><strong>MINA</strong>(column) → Numeric</td><td>Returns the smallest value in a column, treating non-numeric as 0 and logical as TRUE = 1, FALSE = 0. <br/><strong>Includes:</strong> Text, logical, and numeric values. <br/><strong>Ignores:</strong> Blanks.</td></tr>
+                    <tr><td><strong>⚡MINX</strong>(table, expression) → Numeric</td><td>Returns the smallest value of an expression evaluated over a table. <br/><strong>Includes:</strong> Expression results. <br/><strong>Ignores:</strong> Blank or non-numeric results.</td></tr>
+
+                    <!-- Product/Sum Functions -->
+                    <tr><td class="box note"><strong>Product/Sum Functions</strong></td></tr>
+                    <tr><td><strong>⚡PRODUCT</strong>(column) → Numeric</td><td>Returns the product of all numeric values in a column. <br/><strong>Includes:</strong> Numeric values. <br/><strong>Ignores:</strong> Non-numeric and blank values.</td></tr>
+                    <tr><td><strong>PRODUCTX</strong>(table, expression) → Numeric</td><td>Returns the product of an expression evaluated over a table. <br/><strong>Includes:</strong> Expression results. <br/><strong>Ignores:</strong> Blank or non-numeric results.</td></tr>
+                    <tr><td><strong>⚡SUM</strong>(column) → Numeric</td><td>Returns the sum of all numeric values in a column. <br/><strong>Includes:</strong> Numeric values. <br/><strong>Ignores:</strong> Non-numeric, logical, and blank values.</td></tr>
+                    <tr><td><strong>⚡SUMX</strong>(table, expression) → Numeric</td><td>Returns the sum of an expression evaluated over a table. <br/><strong>Includes:</strong> Expression results. <br/><strong>Ignores:</strong> Blank or non-numeric results.</td></tr>
+                </tbody>
+            </table>
+            <h1>Date & Time</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Date/DateTime Return Type -->
+                    <tr><td class="box note"><strong>Date/DateTime Return Type</strong></td></tr>
+                    <tr><td><strong>⚡DATE</strong>(year, month, day) → Date</td><td>Returns a date from year, month, and day. <br/><strong>Use:</strong> Creating a date from individual parts.</td></tr>
+                    <tr><td><strong>TIME</strong>(hour, minute, second) → DateTime</td><td>Returns a time from hour, minute, and second. <br/><strong>Use:</strong> Creating a time value.</td></tr>
+                    <tr><td><strong>⚡NOW</strong>() → DateTime</td><td>Returns current date and time. <br/><strong>Use:</strong> Fetching system's current date and time.</td></tr>
+                    <tr><td><strong>⚡TODAY</strong>() → Date</td><td>Returns current date (without time). <br/><strong>Use:</strong> Fetching today's date.</td></tr>
+                    <tr><td><strong>UTCNOW</strong>() → DateTime</td><td>Returns current date and time in UTC. <br/><strong>Use:</strong> Fetching current UTC date and time.</td></tr>
+                    <tr><td><strong>UTCTODAY</strong>() → Date</td><td>Returns current UTC date (without time). <br/><strong>Use:</strong> Fetching today's date in UTC.</td></tr>
+                    <tr><td><strong>DATEVALUE</strong>(date_text) → Date</td><td>Converts text date to a valid date value. <br/><strong>Use:</strong> Parsing text-based dates into DAX date values.</td></tr>
+                    <tr><td><strong>TIMEVALUE</strong>(time_text) → Time</td><td>Converts text time to a valid time value. <br/><strong>Use:</strong> Parsing text-based times into DAX time values.</td></tr>
+                    <tr><td><strong>CALENDAR</strong>(start_date, end_date) → DateTable</td><td>Returns a continuous date range from `start_date` to `end_date`. <br/><strong>Use:</strong> Creating a date range table.</td></tr>
+                    <tr><td><strong>⚡CALENDARAUTO</strong>([fiscal_year_end_month]) → DateTable</td><td>Generates a date table based on data in the model. <br/><strong>Use:</strong> Automatically creating a date table.</td></tr>
+                    <tr><td><strong>EDATE</strong>(start_date, months) → Date</td><td>Returns a date that is a given number of months before/after `start_date`. <br/><strong>Use:</strong> Moving dates by months.</td></tr>
+                    <tr><td><strong>EOMONTH</strong>(start_date, months) → Date</td><td>Returns the last day of the month before/after `start_date`. <br/><strong>Use:</strong> Finding last day of the month after moving months.</td></tr>
+
+                    <!-- Integer Return Type -->
+                    <tr><td class="box note"><strong>Integer Return Type</strong></td></tr>
+                    <tr><td><strong>⚡DAY</strong>(date) → Integer</td><td>Returns the day part of a date (1-31). <br/><strong>Use:</strong> Extracting day from date.</td></tr>
+                    <tr><td><strong>⚡HOUR</strong>(date/time) → Integer</td><td>Returns the hour part of a datetime (0-23). <br/><strong>Use:</strong> Extracting hour from datetime.</td></tr>
+                    <tr><td><strong>MINUTE</strong>(date/time) → Integer</td><td>Returns the minute part of a datetime (0-59). <br/><strong>Use:</strong> Extracting minute from datetime.</td></tr>
+                    <tr><td><strong>SECOND</strong>(date/time) → Integer</td><td>Returns the second part of a datetime (0-59). <br/><strong>Use:</strong> Extracting second from datetime.</td></tr>
+                    <tr><td><strong>⚡MONTH</strong>(date) → Integer</td><td>Returns the month part of a date (1-12). <br/><strong>Use:</strong> Extracting month from date.</td></tr>
+                    <tr><td><strong>QUARTER</strong>(date) → Integer</td><td>Returns the quarter of a year (1-4). <br/><strong>Use:</strong> Extracting quarter from date.</td></tr>
+                    <tr><td><strong>WEEKDAY</strong>(date, [return_type]) → Integer</td><td>Returns the weekday (1-7) for a given date. <br/><strong>Use:</strong> Extracting day of the week from date.</td></tr>
+                    <tr><td><strong>WEEKNUM</strong>(date, [return_type]) → Integer</td><td>Returns the week number (1-53) for a given date. <br/><strong>Use:</strong> Extracting week number from date.</td></tr>
+                    <tr><td><strong>⚡YEAR</strong>(date) → Integer</td><td>Returns the year part of a date. <br/><strong>Use:</strong> Extracting year from date.</td></tr>
+                    <tr><td><strong>DATEDIFF</strong>(start_date, end_date, unit) → Integer</td><td>Returns the difference between two dates in specified unit. <br/><strong>Use:</strong> Calculating the time span between two dates.</td></tr>
+                    <tr><td><strong>NETWORKDAYS</strong>(start_date, end_date, [holidays]) → Integer</td><td>Returns the number of working days between two dates. <br/><strong>Use:</strong> Counting weekdays, excluding holidays.</td></tr>
+
+                    <!-- Decimal Return Type -->
+                    <tr><td class="box note"><strong>Decimal Return Type</strong></td></tr>
+                    <tr><td><strong>YEARFRAC</strong>(start_date, end_date) → Decimal</td><td>Returns the fractional year between two dates. <br/><strong>Use:</strong> Calculating fraction of a year.</td></tr>
+                </tbody>
+            </table>
+            <h1>Filters</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Table Return Type (Table Functions) -->
+                    <tr><td class="box note"><strong>Table Return Type (Table Functions)</strong></td></tr>
+                    <tr><td><strong>⚡ALL</strong>(table) → Table</td><td>Removes all filters from a table/column. <br/><strong>Use:</strong> Ignoring filters to return full table/column.</td></tr>
+                    <tr><td><strong>ALLCROSSFILTERED</strong>(table) → Table</td><td>Removes all cross-filtering between tables/columns. <br/><strong>Use:</strong> Ignoring cross-filter relationships.</td></tr>
+                    <tr><td><strong>ALLEXCEPT</strong>(table, columns) → Table</td><td>Removes filters except those on specified columns. <br/><strong>Use:</strong> Keeping specific column filters.</td></tr>
+                    <tr><td><strong>ALLNOBLANKROW</strong>(table) → Table</td><td>Removes filters while preserving blank rows. <br/><strong>Use:</strong> Removing filters but keeping blanks.</td></tr>
+                    <tr><td><strong>ALLSELECTED</strong>(table) → Table</td><td>Returns rows selected in the visual context. <br/><strong>Use:</strong> Retaining visual filters, ignoring slicers.</td></tr>
+                    <tr><td><strong>REMOVEFILTERS</strong>(table) → Table</td><td>Clears filters on specified tables/columns. <br/><strong>Use:</strong> Removing filters in a calculation.</td></tr>
+                    <tr><td><strong>⚡CALCULATE</strong>(expression, filters...) → Calculated Value</td><td>Evaluates an expression in a modified filter context. <br/><strong>Use:</strong> Modifying filter context for expressions.</td></tr>
+                    <tr><td><strong>CALCULATETABLE</strong>(expression, filters...) → Table</td><td>Evaluates an expression in a table with modified filters. <br/><strong>Use:</strong> Creating a table with new filters.</td></tr>
+                    <tr><td><strong>FILTER</strong>(table, condition) → Table</td><td>Returns a subset of a table based on a condition. <br/><strong>Use:</strong> Filtering a table by conditions.</td></tr>
+                    <tr><td><strong>KEEPFILTERS</strong>(filter) → Table</td><td>Modifies filter behavior in CALCULATE/CALCULATETABLE. <br/><strong>Use:</strong> Retaining specific filters during calculation.</td></tr>
+
+                    <!-- Visual Calculation Functions -->
+                    <tr><td class="box note"><strong>Visual Calculation Functions</strong></td></tr>
+                    <tr><td><strong>FIRST</strong>() → Value</td><td>Used in visuals only. Gets the first value from the visual axis. <br/><strong>Use:</strong> Fetching first value in visuals.</td></tr>
+                    <tr><td><strong>LAST</strong>() → Value</td><td>Used in visuals only. Gets the last value from the visual axis. <br/><strong>Use:</strong> Fetching last value in visuals.</td></tr>
+                    <tr><td><strong>LOOKUP</strong>() → Value</td><td>Used in visuals. Looks up values when filters are applied. <br/><strong>Use:</strong> Fetching filtered values in visuals.</td></tr>
+                    <tr><td><strong>LOOKUPWITHTOTALS</strong>() → Value</td><td>Used in visuals. Looks up values while preserving unspecified filters. <br/><strong>Use:</strong> Fetching values with total control over filters.</td></tr>
+                    <tr><td><strong>LOOKUPVALUE</strong>(column, search_value) → Value</td><td>Returns value for a row meeting all search conditions. <br/><strong>Use:</strong> Searching for values based on criteria.</td></tr>
+                    <tr><td><strong>MATCHBY</strong>(columns, condition) → Table</td><td>Defines columns to match data in a window function. <br/><strong>Use:</strong> Matching data across rows in a window function.</td></tr>
+
+                    <!-- Window Function Return Types -->
+                    <tr><td class="box note"><strong>Window Function Return Types</strong></td></tr>
+                    <tr><td><strong>INDEX</strong>(position, partition, order) → Row</td><td>Returns a row at a specified position in a partition. <br/><strong>Use:</strong> Fetching row by position in a partition.</td></tr>
+                    <tr><td><strong>OFFSET</strong>(offset) → Row</td><td>Returns a row before/after current row by offset. <br/><strong>Use:</strong> Accessing a row relative to the current one.</td></tr>
+                    <tr><td><strong>ORDERBY</strong>(columns) → Sorted Table</td><td>Defines the sort order in window function partitions. <br/><strong>Use:</strong> Ordering data within a window partition.</td></tr>
+                    <tr><td><strong>PARTITIONBY</strong>(columns) → Partitioned Table</td><td>Defines columns for partitioning data in window functions. <br/><strong>Use:</strong> Partitioning data for window function analysis.</td></tr>
+                    <tr><td><strong>RANGE</strong>(interval) → Table</td><td>Returns rows within a specified interval. <br/><strong>Use:</strong> Accessing rows relative to the current one.</td></tr>
+                    <tr><td><strong>RANK</strong>(row) → Integer</td><td>Returns the rank of a row in the interval. <br/><strong>Use:</strong> Ranking rows in a window function.</td></tr>
+                    <tr><td><strong>ROWNUMBER</strong>(row) → Integer</td><td>Returns a unique rank for each row. <br/><strong>Use:</strong> Ranking rows uniquely within an interval.</td></tr>
+                    <tr><td><strong>RUNNINGSUM</strong>(expression) → Sum</td><td>Returns a running sum along the visual axis. <br/><strong>Use:</strong> Calculating a running sum in visuals.</td></tr>
+                    <tr><td><strong>WINDOW</strong>(interval) → Table</td><td>Returns multiple rows within a specified interval. <br/><strong>Use:</strong> Fetching multiple rows from a window.</td></tr>
+
+                    <!-- Contextual Value Return Functions -->
+                    <tr><td class="box note"><strong>Contextual Value Return Functions</strong></td></tr>
+                    <tr><td><strong>⚡SELECTEDVALUE</strong>(column, [alternate_result]) → Value</td><td>Returns the selected value when only one is in context, or an alternate result. <br/><strong>Use:</strong> Returning a value when there is only one distinct value in context.</td></tr>
+                </tbody>
+            </table>
+            <h1>Information</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Blank / Logical Checking Functions -->
+                    <tr><td class="box note"><strong>Blank / Logical Checking Functions</strong></td></tr>
+                    <tr><td><strong>ISBLANK</strong>(value) → Boolean</td><td>Returns TRUE if the value is blank. <br/><strong>Use:</strong> Checking for blank values.</td></tr>
+                    <tr><td><strong>ISBOOLEAN</strong>(value) → Boolean</td><td>Returns TRUE if the value is a boolean. <br/><strong>Use:</strong> Checking if the value is TRUE or FALSE.</td></tr>
+                    <tr><td><strong>ISLOGICAL</strong>(value) → Boolean</td><td>Returns TRUE if the value is a logical value (TRUE or FALSE). <br/><strong>Use:</strong> Identifying logical values.</td></tr>
+                    <tr><td><strong>ISEMPTY</strong>(table) → Boolean</td><td>Returns TRUE if the table is empty. <br/><strong>Use:</strong> Checking for empty tables.</td></tr>
+                    <tr><td><strong>ISERROR</strong>(value) → Boolean</td><td>Returns TRUE if the value is an error. <br/><strong>Use:</strong> Error checking.</td></tr>
+                    <tr><td><strong>ISNUMBER</strong>(value) → Boolean</td><td>Returns TRUE if the value is numeric. <br/><strong>Use:</strong> Checking if the value is a number.</td></tr>
+                    <tr><td><strong>ISSTRING</strong>(value) → Boolean</td><td>Returns TRUE if the value is a string. <br/><strong>Use:</strong> Identifying string values.</td></tr>
+                    <tr><td><strong>ISINT64</strong>(value) → Boolean</td><td>Returns TRUE if the value is a 64-bit integer. <br/><strong>Use:</strong> Identifying 64-bit integers.</td></tr>
+                    <tr><td><strong>ISINTEGER</strong>(value) → Boolean</td><td>Returns TRUE if the value is an integer. <br/><strong>Use:</strong> Identifying integer values.</td></tr>
+                    <tr><td><strong>ISNUMERIC</strong>(value) → Boolean</td><td>Returns TRUE if the value is numeric (int, float, etc.). <br/><strong>Use:</strong> Checking for numeric values.</td></tr>
+                    <tr><td><strong>ISODD</strong>(value) → Boolean</td><td>Returns TRUE if the value is odd. <br/><strong>Use:</strong> Checking for odd values.</td></tr>
+                    <tr><td><strong>ISEVEN</strong>(value) → Boolean</td><td>Returns TRUE if the value is even. <br/><strong>Use:</strong> Checking for even values.</td></tr>
+
+                    <!-- Contains / Matching Functions -->
+                    <tr><td class="box note"><strong>Contains / Matching Functions</strong></td></tr>
+                    <tr><td><strong>CONTAINS</strong>(table, column, value) → Boolean</td><td>Returns TRUE if the table contains the specified value in the column. <br/><strong>Use:</strong> Checking if a value exists in a column.</td></tr>
+                    <tr><td><strong>CONTAINSROW</strong>(table, row) → Boolean</td><td>Returns TRUE if the table contains the specified row. <br/><strong>Use:</strong> Checking for the existence of a row in a table.</td></tr>
+                    <tr><td><strong>CONTAINSSTRING</strong>(text, substring) → Boolean</td><td>Returns TRUE if the substring exists in the text. <br/><strong>Use:</strong> Checking if a string contains a substring.</td></tr>
+                    <tr><td><strong>CONTAINSSTRINGEXACT</strong>(text, substring) → Boolean</td><td>Returns TRUE if the text contains an exact match of the substring. <br/><strong>Use:</strong> Checking for exact matches in a string.</td></tr>
+
+                    <!-- Scope & Filter Checking Functions -->
+                    <tr><td class="box note"><strong>Scope & Filter Checking Functions</strong></td></tr>
+                    <tr><td><strong>HASONEFILTER</strong>(column) → Boolean</td><td>Returns TRUE if the column has exactly one filter applied. <br/><strong>Use:</strong> Checking for a single filter on a column.</td></tr>
+                    <tr><td><strong>HASONEVALUE</strong>(column) → Boolean</td><td>Returns TRUE if the column has exactly one value. <br/><strong>Use:</strong> Checking for a single value in a column.</td></tr>
+                    <tr><td><strong>ISCROSSFILTERED</strong>(table, column) → Boolean</td><td>Returns TRUE if the column is cross-filtered by another table. <br/><strong>Use:</strong> Identifying cross-filtered columns.</td></tr>
+                    <tr><td><strong>ISFILTERED</strong>(column) → Boolean</td><td>Returns TRUE if the column is filtered. <br/><strong>Use:</strong> Checking for any filter on a column.</td></tr>
+                    <tr><td><strong>ISINSCOPE</strong>(column) → Boolean</td><td>Returns TRUE if the column is in the current row context. <br/><strong>Use:</strong> Checking if a column is in the current scope.</td></tr>
+
+                    <!-- Context / Measure Functions -->
+                    <tr><td class="box note"><strong>Context / Measure Functions</strong></td></tr>
+                    <tr><td><strong>⚡ISSELECTEDMEASURE</strong>() → Boolean</td><td>Returns TRUE if a measure is selected in the current context. <br/><strong>Use:</strong> Checking if a measure is actively selected.</td></tr>
+                    <tr><td><strong>⚡SELECTEDMEASURE</strong>() → Measure</td><td>Returns the selected measure in the current context. <br/><strong>Use:</strong> Fetching the currently selected measure.</td></tr>
+                    <tr><td><strong>SELECTEDMEASUREFORMATSTRING</strong>() → String</td><td>Returns the format string for the selected measure. <br/><strong>Use:</strong> Fetching the format of the selected measure.</td></tr>
+                    <tr><td><strong>SELECTEDMEASURENAME</strong>() → String</td><td>Returns the name of the selected measure. <br/><strong>Use:</strong> Fetching the name of the selected measure.</td></tr>
+
+                    <!-- User / Culture Functions -->
+                    <tr><td class="box note"><strong>User / Culture Functions</strong></td></tr>
+                    <tr><td><strong>USERCULTURE</strong>() → String</td><td>Returns the culture code of the user. <br/><strong>Use:</strong> Fetching user’s culture setting.</td></tr>
+                    <tr><td><strong>USERNAME</strong>() → String</td><td>Returns the username of the current user. <br/><strong>Use:</strong> Fetching the current user's name.</td></tr>
+                    <tr><td><strong>USEROBJECTID</strong>() → String</td><td>Returns the object ID of the current user. <br/><strong>Use:</strong> Fetching user object ID.</td></tr>
+                    <tr><td><strong>USERPRINCIPALNAME</strong>() → String</td><td>Returns the principal name of the current user. <br/><strong>Use:</strong> Fetching user principal name.</td></tr>
+
+                    <!-- Miscellaneous Functions -->
+                    <tr><td class="box note"><strong>Miscellaneous Functions</strong></td></tr>
+                    <tr><td><strong>COLUMNSTATISTICS</strong>() → Table</td><td>Returns statistics for the specified column. <br/><strong>Use:</strong> Getting column statistics.</td></tr>
+                    <tr><td><strong>CUSTOMDATA</strong>() → String</td><td>Returns custom data from the current context. <br/><strong>Use:</strong> Fetching custom data.</td></tr>
+                    <tr><td><strong>NAMEOF</strong>(object) → String</td><td>Returns the name of the specified object. <br/><strong>Use:</strong> Fetching object name.</td></tr>
+                    <tr><td><strong>NONVISUAL</strong>() → Table</td><td>Returns the non-visual elements of a report. <br/><strong>Use:</strong> Fetching non-visual elements.</td></tr>
+                    <tr><td><strong>TABLEOF</strong>(expression) → Table</td><td>Returns a table of values based on an expression. <br/><strong>Use:</strong> Generating a table based on a given expression.</td></tr>
+                </tbody>
+            </table>
+            <h1>Logical</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Logical Functions -->
+                    <tr><td class="box note"><strong>Logical Functions</strong></td></tr>
+                    <tr><td><strong>⚡AND</strong>(expression1, expression2) → Boolean</td><td>Returns TRUE if both expressions are TRUE. <br/><strong>Use:</strong> Checking if both conditions are true.</td></tr>
+                    <tr><td><strong>FALSE</strong>() → Boolean</td><td>Returns FALSE. <br/><strong>Use:</strong> Returning a fixed FALSE value.</td></tr>
+                    <tr><td><strong>⚡IF</strong>(logical_test, value_if_true, value_if_false) → Any</td><td>Returns one value if the logical test is TRUE, and another value if FALSE. <br/><strong>Use:</strong> Conditional evaluation based on a test.</td></tr>
+                    <tr><td><strong>IF.EAGER</strong>(logical_test, value_if_true, value_if_false) → Any</td><td>Evaluates both values before testing the condition. <br/><strong>Use:</strong> Ensuring both outcomes are evaluated eagerly.</td></tr>
+                    <tr><td><strong>⚡IFERROR</strong>(value, value_if_error) → Any</td><td>Returns `value_if_error` if the expression results in an error, otherwise returns the value. <br/><strong>Use:</strong> Handling errors in expressions.</td></tr>
+                    <tr><td><strong>NOT</strong>(logical) → Boolean</td><td>Returns the inverse of the logical value (TRUE becomes FALSE, and vice versa). <br/><strong>Use:</strong> Reversing the truth value.</td></tr>
+                    <tr><td><strong>⚡OR</strong>(expression1, expression2) → Boolean</td><td>Returns TRUE if at least one of the expressions is TRUE. <br/><strong>Use:</strong> Checking if at least one condition is true.</td></tr>
+                    <tr><td><strong>⚡SWITCH</strong>(expression, value1, result1, value2, result2, ..., default) → Any</td><td>Evaluates an expression against several values, returning the corresponding result. <br/><strong>Use:</strong> Multiple condition testing in one expression.</td></tr>
+                    <tr><td><strong>TRUE</strong>() → Boolean</td><td>Returns TRUE. <br/><strong>Use:</strong> Returning a fixed TRUE value.</td></tr>
+
+                    <!-- Bitwise Functions -->
+                    <tr><td class="box note"><strong>Bitwise Functions</strong></td></tr>
+                    <tr><td><strong>BITAND</strong>(value1, value2) → Integer</td><td>Performs a bitwise AND operation between two numbers. <br/><strong>Use:</strong> Checking if both bits are set.</td></tr>
+                    <tr><td><strong>BITLSHIFT</strong>(value, shift_amount) → Integer</td><td>Performs a left bitwise shift on a value. <br/><strong>Use:</strong> Shifting bits to the left.</td></tr>
+                    <tr><td><strong>BITOR</strong>(value1, value2) → Integer</td><td>Performs a bitwise OR operation between two numbers. <br/><strong>Use:</strong> Checking if either bit is set.</td></tr>
+                    <tr><td><strong>BITRSHIFT</strong>(value, shift_amount) → Integer</td><td>Performs a right bitwise shift on a value. <br/><strong>Use:</strong> Shifting bits to the right.</td></tr>
+                    <tr><td><strong>BITXOR</strong>(value1, value2) → Integer</td><td>Performs a bitwise XOR operation between two numbers. <br/><strong>Use:</strong> Checking if the bits are different.</td></tr>
+
+                    <!-- Null Handling Function -->
+                    <tr><td class="box note"><strong>Null Handling Function</strong></td></tr>
+                    <tr><td><strong>⚡COALESCE</strong>(expression1, expression2, ...) → Any</td><td>Returns the first non-blank value in the list of expressions. <br/><strong>Use:</strong> Returning the first available non-blank value.</td></tr>
+                </tbody>
+            </table>
+            <h1>Math & Trig</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Trigonometric Functions -->
+                    <tr><td class="box note"><strong>Trigonometric Functions</strong></td></tr>
+                    <tr><td><strong>ACOS</strong>(number) → Decimal</td><td>Returns the inverse cosine (arccosine) of a number. <br/><strong>Use:</strong> Finding the angle whose cosine is the given number.</td></tr>
+                    <tr><td><strong>ACOSH</strong>(number) → Decimal</td><td>Returns the inverse hyperbolic cosine of a number. <br/><strong>Use:</strong> Finding the angle whose hyperbolic cosine is the given number.</td></tr>
+                    <tr><td><strong>ASIN</strong>(number) → Decimal</td><td>Returns the inverse sine (arcsine) of a number. <br/><strong>Use:</strong> Finding the angle whose sine is the given number.</td></tr>
+                    <tr><td><strong>ASINH</strong>(number) → Decimal</td><td>Returns the inverse hyperbolic sine of a number. <br/><strong>Use:</strong> Finding the angle whose hyperbolic sine is the given number.</td></tr>
+                    <tr><td><strong>ATAN</strong>(number) → Decimal</td><td>Returns the inverse tangent (arctangent) of a number. <br/><strong>Use:</strong> Finding the angle whose tangent is the given number.</td></tr>
+                    <tr><td><strong>ATANH</strong>(number) → Decimal</td><td>Returns the inverse hyperbolic tangent of a number. <br/><strong>Use:</strong> Finding the angle whose hyperbolic tangent is the given number.</td></tr>
+                    <tr><td><strong>COS</strong>(angle) → Decimal</td><td>Returns the cosine of an angle. <br/><strong>Use:</strong> Finding the cosine of an angle.</td></tr>
+                    <tr><td><strong>COSH</strong>(angle) → Decimal</td><td>Returns the hyperbolic cosine of an angle. <br/><strong>Use:</strong> Finding the hyperbolic cosine of an angle.</td></tr>
+                    <tr><td><strong>SIN</strong>(angle) → Decimal</td><td>Returns the sine of an angle. <br/><strong>Use:</strong> Finding the sine of an angle.</td></tr>
+                    <tr><td><strong>SINH</strong>(angle) → Decimal</td><td>Returns the hyperbolic sine of an angle. <br/><strong>Use:</strong> Finding the hyperbolic sine of an angle.</td></tr>
+                    <tr><td><strong>TAN</strong>(angle) → Decimal</td><td>Returns the tangent of an angle. <br/><strong>Use:</strong> Finding the tangent of an angle.</td></tr>
+                    <tr><td><strong>TANH</strong>(angle) → Decimal</td><td>Returns the hyperbolic tangent of an angle. <br/><strong>Use:</strong> Finding the hyperbolic tangent of an angle.</td></tr>
+
+                    <!-- Rounding & Conversion Functions -->
+                    <tr><td class="box note"><strong>Rounding & Conversion Functions</strong></td></tr>
+                    <tr><td><strong>⚡CEILING</strong>(number, significance) → Decimal</td><td>Rounds a number up to the nearest multiple of a specified value. <br/><strong>Use:</strong> Rounding numbers up.</td></tr>
+                    <tr><td><strong>⚡FLOOR</strong>(number, significance) → Decimal</td><td>Rounds a number down to the nearest multiple of a specified value. <br/><strong>Use:</strong> Rounding numbers down.</td></tr>
+                    <tr><td><strong>⚡ROUND</strong>(number, num_digits) → Decimal</td><td>Rounds a number to the specified number of digits. <br/><strong>Use:</strong> Rounding numbers to a fixed decimal place.</td></tr>
+                    <tr><td><strong>⚡ROUNDDOWN</strong>(number, num_digits) → Decimal</td><td>Rounds a number down to the specified number of digits. <br/><strong>Use:</strong> Rounding down to the nearest decimal.</td></tr>
+                    <tr><td><strong>⚡ROUNDUP</strong>(number, num_digits) → Decimal</td><td>Rounds a number up to the specified number of digits. <br/><strong>Use:</strong> Rounding up to the nearest decimal.</td></tr>
+                    <tr><td><strong>⚡TRUNC</strong>(number, num_digits) → Decimal</td><td>Truncates a number to a specific number of digits. <br/><strong>Use:</strong> Removing decimals without rounding.</td></tr>
+
+                    <!-- General Mathematical Functions -->
+                    <tr><td class="box note"><strong>General Mathematical Functions</strong></td></tr>
+                    <tr><td><strong>⚡ABS</strong>(number) → Decimal</td><td>Returns the absolute value of a number. <br/><strong>Use:</strong> Finding the magnitude of a number without regard to its sign.</td></tr>
+                    <tr><td><strong>⚡DIVIDE</strong>(numerator, denominator, [alternate_result]) → Decimal</td><td>Performs division and returns an alternate result if division by zero occurs. <br/><strong>Use:</strong> Safe division with error handling.</td></tr>
+                    <tr><td><strong>EXP</strong>(number) → Decimal</td><td>Returns the exponential value of `e` raised to the power of the given number. <br/><strong>Use:</strong> Exponentiation using Euler's number `e`.</td></tr>
+                    <tr><td><strong>FACT</strong>(number) → Integer</td><td>Returns the factorial of a number. <br/><strong>Use:</strong> Calculating the product of all integers up to a given number.</td></tr>
+                    <tr><td><strong>GCD</strong>(number1, number2) → Integer</td><td>Returns the greatest common divisor of two numbers. <br/><strong>Use:</strong> Finding the largest number that divides both given numbers.</td></tr>
+                    <tr><td><strong>⚡INT</strong>(number) → Integer</td><td>Rounds a number down to the nearest integer. <br/><strong>Use:</strong> Converting a number to the nearest integer.</td></tr>
+                    <tr><td><strong>LCM</strong>(number1, number2) → Integer</td><td>Returns the least common multiple of two numbers. <br/><strong>Use:</strong> Finding the smallest number divisible by both values.</td></tr>
+                    <tr><td><strong>PI</strong>() → Decimal</td><td>Returns the constant value of π (pi). <br/><strong>Use:</strong> Using the mathematical constant π (approx. 3.14159).</td></tr>
+                    <tr><td><strong>POWER</strong>(number, power) → Decimal</td><td>Returns the result of a number raised to the power of another number. <br/><strong>Use:</strong> Performing exponentiation on numbers.</td></tr>
+                    <tr><td><strong>QUOTIENT</strong>(numerator, denominator) → Integer</td><td>Returns the integer portion of a division (ignoring the remainder). <br/><strong>Use:</strong> Integer division.</td></tr>
+
+                    <!-- Logarithmic Functions -->
+                    <tr><td class="box note"><strong>Logarithmic Functions</strong></td></tr>
+                    <tr><td><strong>LN</strong>(number) → Decimal</td><td>Returns the natural logarithm (base `e`) of a number. <br/><strong>Use:</strong> Calculating logarithms with base `e`.</td></tr>
+                    <tr><td><strong>LOG</strong>(number, base) → Decimal</td><td>Returns the logarithm of a number to a specified base. <br/><strong>Use:</strong> Calculating logarithms with custom bases.</td></tr>
+                    <tr><td><strong>LOG10</strong>(number) → Decimal</td><td>Returns the base-10 logarithm of a number. <br/><strong>Use:</strong> Calculating logarithms with base 10.</td></tr>
+
+                    <!-- Random Number Functions -->
+                    <tr><td class="box note"><strong>Random Number Functions</strong></td></tr>
+                    <tr><td><strong>RAND</strong>() → Decimal</td><td>Returns a random number between 0 and 1. <br/><strong>Use:</strong> Generating a random decimal.</td></tr>
+                    <tr><td><strong>RANDBETWEEN</strong>(min, max) → Integer</td><td>Returns a random integer between the specified `min` and `max`. <br/><strong>Use:</strong> Generating random integers within a range.</td></tr>
+                </tbody>
+            </table>
+            <h1>Others</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Error and External Operations -->
+                    <tr><td class="box note"><strong>Error & External Operations</strong></td></tr>
+                    <tr><td><strong>⚡BLANK</strong>() → Blank</td><td>Returns a blank value. <br/><strong>Use:</strong> To represent an empty value.</td></tr>
+                    <tr><td><strong>⚡ERROR</strong>(message) → Error</td><td>Returns an error with a specified message. <br/><strong>Use:</strong> To raise an error with a custom message.</td></tr>
+                    <tr><td><strong>EVALUATEANDLOG</strong>(expression) → Value</td><td>Evaluates an expression and logs the result. <br/><strong>Use:</strong> For logging the output of an expression for debugging purposes.</td></tr>
+                    <tr><td><strong>EXTERNALMEASURE</strong>(measure) → Value</td><td>Returns the value of an external measure. <br/><strong>Use:</strong> For accessing measures from external data sources.</td></tr>
+                    <tr><td><strong>TOCSV</strong>(table) → Text</td><td>Converts a table into CSV format. <br/><strong>Use:</strong> For converting table data into a CSV string for export.</td></tr>
+                    <tr><td><strong>TOJSON</strong>(table) → Text</td><td>Converts a table into JSON format. <br/><strong>Use:</strong> For converting table data into a JSON string for export or integration with APIs.</td></tr>
+                </tbody>
+            </table>
+            <h1>Parent & Child</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- PATH Functions -->
+                    <tr><td class="box note"><strong>PATH Functions</strong></td></tr>
+                    <tr><td><strong>⚡PATH</strong>(parent_column, child_column) → Text</td><td>Returns the full hierarchy path from parent to child. <br/><strong>Use:</strong> Creating a delimited path for parent-child hierarchies.</td></tr>
+                    <tr><td><strong>⚡PATHCONTAINS</strong>(path, value) → Boolean</td><td>Checks if a value exists in a PATH string. <br/><strong>Use:</strong> Determining if a member is part of a hierarchy path.</td></tr>
+                    <tr><td><strong>⚡PATHITEM</strong>(path, position, [type]) → Value</td><td>Returns the item at a specific position in a PATH. <br/><strong>Use:</strong> Extracting a specific hierarchy level from a path.</td></tr>
+                    <tr><td><strong>PATHITEMREVERSE</strong>(path, position, [type]) → Value</td><td>Returns the item at a specific position from the end of the PATH. <br/><strong>Use:</strong> Extracting a hierarchy level counting from the leaf node.</td></tr>
+                    <tr><td><strong>⚡PATHLENGTH</strong>(path) → Integer</td><td>Returns the number of items in a PATH. <br/><strong>Use:</strong> Counting levels in a parent-child hierarchy.</td></tr>
+                </tbody>
+            </table>
+            <h1>Relationships</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Relationship Functions -->
+                    <tr><td class="box note"><strong>Relationship Functions</strong></td></tr>
+                    <tr><td><strong>⚡CROSSFILTER</strong>(column1, column2, direction) → Integer</td><td>Changes the direction of filtering between two columns in a relationship. <br/><strong>Use:</strong> Controlling filtering behavior in relationships.</td></tr>
+                    <tr><td><strong>⚡RELATED</strong>(column) → Value</td><td>Returns a value from a related table in a one-to-many relationship. <br/><strong>Use:</strong> Fetching a value from a related table using a relationship.</td></tr>
+                    <tr><td><strong>⚡RELATEDTABLE</strong>(table) → Table</td><td>Returns a table that contains all rows related to the current row in the original table. <br/><strong>Use:</strong> Returning related rows from another table.</td></tr>
+                    <tr><td><strong>⚡USERELATIONSHIP</strong>(column1, column2) → Table</td><td>Specifies an inactive relationship to be used in a calculation. <br/><strong>Use:</strong> Temporarily activating an inactive relationship for calculations.</td></tr>
+                </tbody>
+            </table>
+            <h1>Statistical</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Statistical & Probability Functions -->
+                    <tr><td class="box note"><strong>Statistical & Probability Functions</strong></td></tr>
+                    <tr><td><strong>BETA.DIST</strong>(x, alpha, beta, cumulative, [A], [B]) → Decimal</td><td>Returns the beta distribution value. <br/><strong>Use:</strong> Probability calculation for beta distribution.</td></tr>
+                    <tr><td><strong>BETA.INV</strong>(probability, alpha, beta, [A], [B]) → Decimal</td><td>Returns the inverse of the beta distribution. <br/><strong>Use:</strong> Finding x for given probability in beta distribution.</td></tr>
+                    <tr><td><strong>CHISQ.DIST</strong>(x, degrees_freedom, cumulative) → Decimal</td><td>Returns the chi-square distribution value. <br/><strong>Use:</strong> Probability calculation for chi-square distribution.</td></tr>
+                    <tr><td><strong>CHISQ.DIST.RT</strong>(x, degrees_freedom) → Decimal</td><td>Returns right-tailed chi-square probability. <br/><strong>Use:</strong> Probability for chi-square test (right tail).</td></tr>
+                    <tr><td><strong>CHISQ.INV</strong>(probability, degrees_freedom) → Decimal</td><td>Returns the inverse chi-square distribution. <br/><strong>Use:</strong> Finding x for given chi-square probability.</td></tr>
+                    <tr><td><strong>CHISQ.INV.RT</strong>(probability, degrees_freedom) → Decimal</td><td>Returns inverse of right-tailed chi-square distribution. <br/><strong>Use:</strong> Finding chi-square value for right-tail probability.</td></tr>
+                    <tr><td><strong>COMBIN</strong>(n, k) → Integer</td><td>Returns number of combinations of n items taken k at a time. <br/><strong>Use:</strong> Counting combinations without repetition.</td></tr>
+                    <tr><td><strong>COMBINA</strong>(n, k) → Integer</td><td>Returns number of combinations with repetitions. <br/><strong>Use:</strong> Counting combinations with repetition.</td></tr>
+                    <tr><td><strong>CONFIDENCE.NORM</strong>(alpha, std_dev, size) → Decimal</td><td>Returns confidence interval using normal distribution. <br/><strong>Use:</strong> Calculating confidence interval (normal).</td></tr>
+                    <tr><td><strong>CONFIDENCE.T</strong>(alpha, std_dev, size) → Decimal</td><td>Returns confidence interval using t-distribution. <br/><strong>Use:</strong> Calculating confidence interval (t-distribution).</td></tr>
+                    <tr><td><strong>EXPON.DIST</strong>(x, lambda, cumulative) → Decimal</td><td>Returns exponential distribution value. <br/><strong>Use:</strong> Probability calculation for exponential distribution.</td></tr>
+                    <tr><td><strong>GEOMEAN</strong>(column) → Decimal</td><td>Returns geometric mean of numeric column. <br/><strong>Use:</strong> Calculating multiplicative average of values.</td></tr>
+                    <tr><td><strong>GEOMEANX</strong>(table, expression) → Decimal</td><td>Returns geometric mean of expression over table. <br/><strong>Use:</strong> Geometric mean from row-wise calculations.</td></tr>
+                    <tr><td><strong>LINEST</strong>(known_y, known_x, const, stats) → Table</td><td>Returns regression statistics. <br/><strong>Use:</strong> Performing linear regression analysis.</td></tr>
+                    <tr><td><strong>LINESTX</strong>(table, y_expression, x_expression, const, stats) → Table</td><td>Returns regression statistics over a table. <br/><strong>Use:</strong> Linear regression with table expressions.</td></tr>
+                    <tr><td><strong>⚡MEDIAN</strong>(column) → Decimal</td><td>Returns median of numeric column. <br/><strong>Use:</strong> Finding middle value in a dataset.</td></tr>
+                    <tr><td><strong>MEDIANX</strong>(table, expression) → Decimal</td><td>Returns median of expression evaluated over table. <br/><strong>Use:</strong> Median of calculated row values.</td></tr>
+                    <tr><td><strong>NORM.DIST</strong>(x, mean, std_dev, cumulative) → Decimal</td><td>Returns normal distribution value. <br/><strong>Use:</strong> Probability calculation for normal distribution.</td></tr>
+                    <tr><td><strong>NORM.INV</strong>(probability, mean, std_dev) → Decimal</td><td>Returns inverse normal distribution. <br/><strong>Use:</strong> Finding x for given normal probability.</td></tr>
+                    <tr><td><strong>NORM.S.DIST</strong>(z, cumulative) → Decimal</td><td>Returns standard normal distribution value. <br/><strong>Use:</strong> Probability for standard normal (mean=0, sd=1).</td></tr>
+                    <tr><td><strong>NORM.S.INV</strong>(probability) → Decimal</td><td>Returns inverse standard normal distribution. <br/><strong>Use:</strong> Finding z for standard normal probability.</td></tr>
+                    <tr><td><strong>⚡PERCENTILE.EXC</strong>(column, k) → Decimal</td><td>Returns k-th percentile excluding 0 and 1. <br/><strong>Use:</strong> Percentile calculation (exclusive).</td></tr>
+                    <tr><td><strong>PERCENTILE.INC</strong>(column, k) → Decimal</td><td>Returns k-th percentile including 0 and 1. <br/><strong>Use:</strong> Percentile calculation (inclusive).</td></tr>
+                    <tr><td><strong>PERCENTILEX.EXC</strong>(table, expression, k) → Decimal</td><td>Returns k-th percentile of expression (exclusive). <br/><strong>Use:</strong> Percentile calculation over table rows.</td></tr>
+                    <tr><td><strong>PERCENTILEX.INC</strong>(table, expression, k) → Decimal</td><td>Returns k-th percentile of expression (inclusive). <br/><strong>Use:</strong> Percentile calculation over table rows.</td></tr>
+                    <tr><td><strong>PERMUT</strong>(n, k) → Integer</td><td>Returns number of permutations of n items taken k at a time. <br/><strong>Use:</strong> Counting arrangements without repetition.</td></tr>
+                    <tr><td><strong>POISSON.DIST</strong>(x, mean, cumulative) → Decimal</td><td>Returns Poisson distribution value. <br/><strong>Use:</strong> Probability calculation for discrete events.</td></tr>
+                    <tr><td><strong>RANK.EQ</strong>(value, column, [order]) → Integer</td><td>Returns rank of value in column (ties get same rank). <br/><strong>Use:</strong> Ranking values in a dataset.</td></tr>
+                    <tr><td><strong>⚡RANKX</strong>(table, expression, [value], [order]) → Integer</td><td>Returns rank of expression evaluated over table. <br/><strong>Use:</strong> Row-wise ranking in a table.</td></tr>
+                    <tr><td><strong>SAMPLE</strong>(expression, size, [replacement]) → Table</td><td>Returns a random sample of rows. <br/><strong>Use:</strong> Sampling rows from a table.</td></tr>
+                    <tr><td><strong>STDEV.P</strong>(column) → Decimal</td><td>Returns population standard deviation. <br/><strong>Use:</strong> Measuring variability of full population.</td></tr>
+                    <tr><td><strong>STDEV.S</strong>(column) → Decimal</td><td>Returns sample standard deviation. <br/><strong>Use:</strong> Measuring variability from a sample.</td></tr>
+                    <tr><td><strong>STDEVX.P</strong>(table, expression) → Decimal</td><td>Returns population standard deviation of expression over table. <br/><strong>Use:</strong> Variability of calculated row values (population).</td></tr>
+                    <tr><td><strong>STDEVX.S</strong>(table, expression) → Decimal</td><td>Returns sample standard deviation of expression over table. <br/><strong>Use:</strong> Variability of calculated row values (sample).</td></tr>
+                    <tr><td><strong>T.DIST</strong>(x, degrees_freedom, cumulative) → Decimal</td><td>Returns t-distribution value. <br/><strong>Use:</strong> Probability calculation for t-distribution.</td></tr>
+                    <tr><td><strong>T.DIST.2T</strong>(x, degrees_freedom) → Decimal</td><td>Returns two-tailed t-distribution probability. <br/><strong>Use:</strong> Two-tailed probability for t-test.</td></tr>
+                    <tr><td><strong>T.DIST.RT</strong>(x, degrees_freedom) → Decimal</td><td>Returns right-tailed t-distribution probability. <br/><strong>Use:</strong> Right-tail probability for t-test.</td></tr>
+                    <tr><td><strong>T.INV</strong>(probability, degrees_freedom) → Decimal</td><td>Returns inverse t-distribution. <br/><strong>Use:</strong> Finding t-value for given probability.</td></tr>
+                    <tr><td><strong>T.INV.2T</strong>(probability, degrees_freedom) → Decimal</td><td>Returns two-tailed inverse t-distribution. <br/><strong>Use:</strong> Finding t-value for two-tailed probability.</td></tr>
+                    <tr><td><strong>VAR.P</strong>(column) → Decimal</td><td>Returns population variance. <br/><strong>Use:</strong> Variability of entire population.</td></tr>
+                    <tr><td><strong>VAR.S</strong>(column) → Decimal</td><td>Returns sample variance. <br/><strong>Use:</strong> Variability of a sample.</td></tr>
+                    <tr><td><strong>VARX.P</strong>(table, expression) → Decimal</td><td>Returns population variance of expression over table. <br/><strong>Use:</strong> Variance of calculated values (population).</td></tr>
+                    <tr><td><strong>VARX.S</strong>(table, expression) → Decimal</td><td>Returns sample variance of expression over table. <br/><strong>Use:</strong> Variance of calculated values (sample).</td></tr>
+                </tbody>
+            </table>
+            <h1>Table Manipulation</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Table and Row Functions -->
+                    <tr><td class="box note"><strong>Table and Row Functions</strong></td></tr>
+                    <tr><td><strong>⚡ADDCOLUMNS</strong>(table, column_name, expression) → Table</td><td>Adds calculated columns to a table. <br/><strong>Use:</strong> Enriching tables with calculated columns.</td></tr>
+                    <tr><td><strong>ADDMISSINGITEMS</strong>(table, column) → Table</td><td>Returns table with missing items added for a column. <br/><strong>Use:</strong> Filling in missing data for columns.</td></tr>
+                    <tr><td><strong>⚡CROSSJOIN</strong>(table1, table2, ...) → Table</td><td>Returns the cross join of two or more tables. <br/><strong>Use:</strong> Combining every row of each table.</td></tr>
+                    <tr><td><strong>CURRENTGROUP</strong>() → Table</td><td>Returns the current group for row context in GROUPBY. <br/><strong>Use:</strong> Group-specific operations.</td></tr>
+                    <tr><td><strong>DATATABLE</strong>(column_names, data_type, {rows}) → Table</td><td>Creates a table from column names and rows of data. <br/><strong>Use:</strong> Creating custom tables in expressions.</td></tr>
+                    <tr><td><strong>DETAILROWS</strong>() → Table</td><td>Returns the rows from a detailed row context. <br/><strong>Use:</strong> Accessing detailed rows in summary contexts.</td></tr>
+                    <tr><td><strong>⚡DISTINCT</strong>(column) → Table</td><td>Returns a table with distinct values from a column. <br/><strong>Use:</strong> Removing duplicates from column values.</td></tr>
+                    <tr><td><strong>⚡DISTINCT</strong>(table) → Table</td><td>Returns a table with distinct rows from a table. <br/><strong>Use:</strong> Removing duplicate rows from a table.</td></tr>
+                    <tr><td><strong>⚡EXCEPT</strong>(table1, table2) → Table</td><td>Returns rows in table1 that are not in table2. <br/><strong>Use:</strong> Set difference between two tables.</td></tr>
+                    <tr><td><strong>⚡FILTERS</strong>(column) → Table</td><td>Returns filters that are applied to a column. <br/><strong>Use:</strong> Retrieving filters on a specific column.</td></tr>
+                    <tr><td><strong>GENERATE</strong>(table1, table2) → Table</td><td>Returns a table by generating rows from table1 and table2. <br/><strong>Use:</strong> Combining row-wise data across tables.</td></tr>
+                    <tr><td><strong>GENERATEALL</strong>(table1, table2) → Table</td><td>Returns a table combining all rows from table1 and table2. <br/><strong>Use:</strong> Including all combinations of rows.</td></tr>
+                    <tr><td><strong>⚡GENERATESERIES</strong>(start, end, increment) → Table</td><td>Generates a table with a series of values. <br/><strong>Use:</strong> Creating a series of numbers or dates.</td></tr>
+                    <tr><td><strong>⚡GROUPBY</strong>(table, group_column_name, ...columns) → Table</td><td>Returns a table with groups defined by specified columns. <br/><strong>Use:</strong> Grouping data in tables.</td></tr>
+                    <tr><td><strong>IGNORE</strong>(table, column) → Table</td><td>Ignores the context of a specific column in a table. <br/><strong>Use:</strong> Overriding context for specific columns.</td></tr>
+                    <tr><td><strong>INTERSECT</strong>(table1, table2) → Table</td><td>Returns rows common to both tables. <br/><strong>Use:</strong> Set intersection between two tables.</td></tr>
+                    <tr><td><strong>NATURALINNERJOIN</strong>(table1, table2) → Table</td><td>Returns inner join of two tables based on common columns. <br/><strong>Use:</strong> Joining tables based on shared columns.</td></tr>
+                    <tr><td><strong>NATURALLEFTOUTERJOIN</strong>(table1, table2) → Table</td><td>Returns left outer join of two tables based on common columns. <br/><strong>Use:</strong> Including all rows from the first table.</td></tr>
+                    <tr><td><strong>⚡ROLLUP</strong>(table, ...columns) → Table</td><td>Returns table with subtotal rows for each group. <br/><strong>Use:</strong> Adding subtotal rows to groups.</td></tr>
+                    <tr><td><strong>ROLLUPADDISSUBTOTAL</strong>(table, column, ...columns) → Table</td><td>Returns table with subtotal row marked. <br/><strong>Use:</strong> Adding subtotal rows with indicators.</td></tr>
+                    <tr><td><strong>ROLLUPISSUBTOTAL</strong>(table, column) → Boolean</td><td>Returns TRUE if the row is a subtotal, else FALSE. <br/><strong>Use:</strong> Identifying subtotal rows.</td></tr>
+                    <tr><td><strong>ROLLUPGROUP</strong>(table, column) → Table</td><td>Returns the group level of a rollup operation. <br/><strong>Use:</strong> Grouping levels in a rollup.</td></tr>
+                    <tr><td><strong>ROW</strong>(column_name, expression, ...) → Table</td><td>Returns a single row table with column names and expressions. <br/><strong>Use:</strong> Creating a single row table.</td></tr>
+                    <tr><td><strong>⚡SELECTCOLUMNS</strong>(table, column_name, expression, ...) → Table</td><td>Returns a table with selected columns and expressions. <br/><strong>Use:</strong> Choosing specific columns from a table.</td></tr>
+                    <tr><td><strong>SUBSTITUTEWITHINDEX</strong>(table, column_name, expression) → Table</td><td>Substitutes values with a unique index. <br/><strong>Use:</strong> Replacing values with indexed ones.</td></tr>
+                    <tr><td><strong>SUMMARIZE</strong>(table, group_column, ...expression) → Table</td><td>Returns a table summarizing data by grouping columns and applying expressions. <br/><strong>Use:</strong> Grouping and aggregating data.</td></tr>
+                    <tr><td><strong>⚡SUMMARIZECOLUMNS</strong>(group_column, ...expression) → Table</td><td>Returns a summarized table using columns and expressions. <br/><strong>Use:</strong> Efficient summarization with filters.</td></tr>
+                    <tr><td><strong>Table Constructor</strong>() → Table</td><td>Creates a new table by manually defining rows. <br/><strong>Use:</strong> Creating a table by defining rows directly.</td></tr>
+                    <tr><td><strong>⚡TOPN</strong>(n, table, order_expression, [sort_order]) → Table</td><td>Returns the top n rows from a table based on an expression. <br/><strong>Use:</strong> Extracting top N rows by criteria.</td></tr>
+                    <tr><td><strong>⚡TREATAS</strong>(table, column) → Table</td><td>Treats columns of a table as another table's columns. <br/><strong>Use:</strong> Treating one table's columns as another's for relationships.</td></tr>
+                    <tr><td><strong>UNION</strong>(table1, table2) → Table</td><td>Combines two tables into one. <br/><strong>Use:</strong> Concatenating rows from two tables.</td></tr>
+                    <tr><td><strong>⚡VALUES</strong>(column) → Table</td><td>Returns distinct values from a column. <br/><strong>Use:</strong> Extracting unique values from a column.</td></tr>
+                </tbody>
+            </table>
+            <h1>Text</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Text Functions -->
+                    <tr><td class="box note"><strong>Text Functions</strong></td></tr>
+                    <tr><td><strong>⚡COMBINEVALUES</strong>(delimiter, column1, column2, ...) → Text</td><td>Concatenates values from multiple columns, separating them by a delimiter. <br/><strong>Use:</strong> Joining text from multiple columns with a separator.</td></tr>
+                    <tr><td><strong>⚡CONCATENATE</strong>(text1, text2) → Text</td><td>Concatenates two text strings. <br/><strong>Use:</strong> Joining two strings together.</td></tr>
+                    <tr><td><strong>CONCATENATEX</strong>(table, expression, delimiter) → Text</td><td>Concatenates values in a table using an expression and a delimiter. <br/><strong>Use:</strong> Combining values from multiple rows into a single string.</td></tr>
+                    <tr><td><strong>⚡EXACT</strong>(text1, text2) → Boolean</td><td>Checks if two text values are exactly the same, case-sensitive. <br/><strong>Use:</strong> Comparing two strings for exact equality.</td></tr>
+                    <tr><td><strong>⚡FIND</strong>(find_text, within_text, [start_position]) → Integer</td><td>Finds the position of a substring within a text string. <br/><strong>Use:</strong> Locating a substring within a text string.</td></tr>
+                    <tr><td><strong>FIXED</strong>(number, [decimals], [no_commas]) → Text</td><td>Formats a number as text, with a fixed number of decimals. <br/><strong>Use:</strong> Formatting numbers to a fixed number of decimal places.</td></tr>
+                    <tr><td><strong>⚡FORMAT</strong>(value, format_string) → Text</td><td>Formats a value according to a given format string. <br/><strong>Use:</strong> Custom formatting of numbers, dates, or times.</td></tr>
+                    <tr><td><strong>⚡LEFT</strong>(text, num_chars) → Text</td><td>Extracts the leftmost characters from a text string. <br/><strong>Use:</strong> Extracting a substring from the left side.</td></tr>
+                    <tr><td><strong>⚡LEN</strong>(text) → Integer</td><td>Returns the number of characters in a text string. <br/><strong>Use:</strong> Counting characters in a string.</td></tr>
+                    <tr><td><strong>⚡LOWER</strong>(text) → Text</td><td>Converts all letters in a text string to lowercase. <br/><strong>Use:</strong> Lowercasing all characters in a string.</td></tr>
+                    <tr><td><strong>MID</strong>(text, start_position, num_chars) → Text</td><td>Extracts a substring from a text string starting at a specified position. <br/><strong>Use:</strong> Extracting a substring from the middle.</td></tr>
+                    <tr><td><strong>⚡REPLACE</strong>(old_text, start_position, num_chars, new_text) → Text</td><td>Replaces part of a text string with another text. <br/><strong>Use:</strong> Replacing characters in a string.</td></tr>
+                    <tr><td><strong>⚡REPT</strong>(text, number_times) → Text</td><td>Repeats a text string a given number of times. <br/><strong>Use:</strong> Repeating text multiple times.</td></tr>
+                    <tr><td><strong>⚡RIGHT</strong>(text, num_chars) → Text</td><td>Extracts the rightmost characters from a text string. <br/><strong>Use:</strong> Extracting a substring from the right side.</td></tr>
+                    <tr><td><strong>⚡SEARCH</strong>(find_text, within_text, [start_position]) → Integer</td><td>Finds the position of a substring within a text string, case-insensitive. <br/><strong>Use:</strong> Locating a substring, ignoring case.</td></tr>
+                    <tr><td><strong>⚡SUBSTITUTE</strong>(text, old_text, new_text, [instance_num]) → Text</td><td>Substitutes one text string for another. <br/><strong>Use:</strong> Replacing specific occurrences of text.</td></tr>
+                    <tr><td><strong>⚡TRIM</strong>(text) → Text</td><td>Removes extra spaces from a text string, leaving only single spaces between words. <br/><strong>Use:</strong> Cleaning up excess whitespace.</td></tr>
+                    <tr><td><strong>⚡UNICHAR</strong>(code) → Text</td><td>Returns the Unicode character corresponding to the given code. <br/><strong>Use:</strong> Converting a Unicode code point to a character.</td></tr>
+                    <tr><td><strong>⚡UNICODE</strong>(text) → Integer</td><td>Returns the Unicode value of the first character in a text string. <br/><strong>Use:</strong> Getting the Unicode code of the first character.</td></tr>
+                    <tr><td><strong>⚡UPPER</strong>(text) → Text</td><td>Converts all letters in a text string to uppercase. <br/><strong>Use:</strong> Uppercasing all characters in a string.</td></tr>
+                    <tr><td><strong>⚡VALUE</strong>(text) → Numeric</td><td>Converts a text string that represents a number to a numeric value. <br/><strong>Use:</strong> Converting text numbers into actual numbers.</td></tr>
+                </tbody>
+            </table>
+            <h1>Time Intelligence</h1>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Time Intelligence Functions -->
+                    <tr><td class="box note"><strong>Time Intelligence Functions</strong></td></tr>
+                    <tr><td><strong>CLOSINGBALANCEWEEK</strong>(expression) → Numeric</td><td>Returns the closing balance for the week of the current date. <br/><strong>Use:</strong> Calculating weekly closing balances.</td></tr>
+                    <tr><td><strong>CLOSINGBALANCEMONTH</strong>(expression) → Numeric</td><td>Returns the closing balance for the month of the current date. <br/><strong>Use:</strong> Calculating monthly closing balances.</td></tr>
+                    <tr><td><strong>CLOSINGBALANCEQUARTER</strong>(expression) → Numeric</td><td>Returns the closing balance for the quarter of the current date. <br/><strong>Use:</strong> Calculating quarterly closing balances.</td></tr>
+                    <tr><td><strong>CLOSINGBALANCEYEAR</strong>(expression) → Numeric</td><td>Returns the closing balance for the year of the current date. <br/><strong>Use:</strong> Calculating yearly closing balances.</td></tr>
+                    <tr><td><strong>⚡DATEADD</strong>(dates, number_of_intervals, interval) → Date</td><td>Shifts the dates by a specified number of intervals. <br/><strong>Use:</strong> Moving dates forward or backward by a given time period.</td></tr>
+                    <tr><td><strong>⚡DATESBETWEEN</strong>(dates, start_date, end_date) → Date</td><td>Returns a table with dates between the specified start and end dates. <br/><strong>Use:</strong> Filtering dates between two given points in time.</td></tr>
+                    <tr><td><strong>⚡DATESINPERIOD</strong>(dates, start_date, number_of_intervals, interval) → Date</td><td>Returns a table with dates that fall within a specified period from the start date. <br/><strong>Use:</strong> Filtering dates in a given period (e.g., month, quarter, year).</td></tr>
+                    <tr><td><strong>⚡DATESWTD</strong>(dates) → Date</td><td>Returns the dates for the current week-to-date. <br/><strong>Use:</strong> Filtering the dates of the current week.</td></tr>
+                    <tr><td><strong>DATESMTD</strong>(dates) → Date</td><td>Returns the dates for the current month-to-date. <br/><strong>Use:</strong> Filtering the dates of the current month.</td></tr>
+                    <tr><td><strong>DATESQTD</strong>(dates) → Date</td><td>Returns the dates for the current quarter-to-date. <br/><strong>Use:</strong> Filtering the dates of the current quarter.</td></tr>
+                    <tr><td><strong>DATESYTD</strong>(dates) → Date</td><td>Returns the dates for the current year-to-date. <br/><strong>Use:</strong> Filtering the dates of the current year.</td></tr>
+                    <tr><td><strong>ENDOFWEEK</strong>(dates, [start_of_week]) → Date</td><td>Returns the last date of the week for the specified date. <br/><strong>Use:</strong> Finding the end date of the week.</td></tr>
+                    <tr><td><strong>⚡ENDOFMONTH</strong>(dates) → Date</td><td>Returns the last date of the month for the specified date. <br/><strong>Use:</strong> Finding the end date of the month.</td></tr>
+                    <tr><td><strong>⚡ENDOFQUARTER</strong>(dates) → Date</td><td>Returns the last date of the quarter for the specified date. <br/><strong>Use:</strong> Finding the end date of the quarter.</td></tr>
+                    <tr><td><strong>⚡ENDOFYEAR</strong>(dates) → Date</td><td>Returns the last date of the year for the specified date. <br/><strong>Use:</strong> Finding the end date of the year.</td></tr>
+                    <tr><td><strong>⚡FIRSTDATE</strong>(dates) → Date</td><td>Returns the first date in the specified date column. <br/><strong>Use:</strong> Finding the first date of a given period.</td></tr>
+                    <tr><td><strong>LASTDATE</strong>(dates) → Date</td><td>Returns the last date in the specified date column. <br/><strong>Use:</strong> Finding the last date of a given period.</td></tr>
+                    <tr><td><strong>⚡NEXTDAY</strong>(dates) → Date</td><td>Returns the date following the current date. <br/><strong>Use:</strong> Getting the next day's date.</td></tr>
+                    <tr><td><strong>⚡NEXTWEEK</strong>(dates) → Date</td><td>Returns the date of the following week. <br/><strong>Use:</strong> Getting the date for the next week.</td></tr>
+                    <tr><td><strong>NEXTMONTH</strong>(dates) → Date</td><td>Returns the date of the following month. <br/><strong>Use:</strong> Getting the date for the next month.</td></tr>
+                    <tr><td><strong>NEXTQUARTER</strong>(dates) → Date</td><td>Returns the date of the next quarter. <br/><strong>Use:</strong> Getting the date for the next quarter.</td></tr>
+                    <tr><td><strong>NEXTYEAR</strong>(dates) → Date</td><td>Returns the date of the next year. <br/><strong>Use:</strong> Getting the date for the next year.</td></tr>
+                    <tr><td><strong>OPENINGBALANCEWEEK</strong>(expression) → Numeric</td><td>Returns the opening balance for the week of the current date. <br/><strong>Use:</strong> Calculating weekly opening balances.</td></tr>
+                    <tr><td><strong>OPENINGBALANCEMONTH</strong>(expression) → Numeric</td><td>Returns the opening balance for the month of the current date. <br/><strong>Use:</strong> Calculating monthly opening balances.</td></tr>
+                    <tr><td><strong>OPENINGBALANCEQUARTER</strong>(expression) → Numeric</td><td>Returns the opening balance for the quarter of the current date. <br/><strong>Use:</strong> Calculating quarterly opening balances.</td></tr>
+                    <tr><td><strong>OPENINGBALANCEYEAR</strong>(expression) → Numeric</td><td>Returns the opening balance for the year of the current date. <br/><strong>Use:</strong> Calculating yearly opening balances.</td></tr>
+                    <tr><td><strong>⚡PARALLELPERIOD</strong>(dates, number_of_intervals, interval) → Date</td><td>Returns a table that shifts the dates by a specified number of intervals. <br/><strong>Use:</strong> Comparing periods with a time shift.</td></tr>
+                    <tr><td><strong>⚡PREVIOUSDAY</strong>(dates) → Date</td><td>Returns the previous day relative to the current date. <br/><strong>Use:</strong> Getting the date for the previous day.</td></tr>
+                    <tr><td><strong>PREVIOUSWEEK</strong>(dates) → Date</td><td>Returns the date for the previous week. <br/><strong>Use:</strong> Getting the date for the previous week.</td></tr>
+                    <tr><td><strong>PREVIOUSMONTH</strong>(dates) → Date</td><td>Returns the date for the previous month. <br/><strong>Use:</strong> Getting the date for the previous month.</td></tr>
+                    <tr><td><strong>PREVIOUSQUARTER</strong>(dates) → Date</td><td>Returns the date for the previous quarter. <br/><strong>Use:</strong> Getting the date for the previous quarter.</td></tr>
+                    <tr><td><strong>⚡PREVIOUSYEAR</strong>(dates) → Date</td><td>Returns the date for the previous year. <br/><strong>Use:</strong> Getting the date for the previous year.</td></tr>
+                    <tr><td><strong>⚡SAMEPERIODLASTYEAR</strong>(dates) → Date</td><td>Returns the same period for the previous year. <br/><strong>Use:</strong> Comparing the same period in the previous year.</td></tr>
+                    <tr><td><strong>STARTOFWEEK</strong>(dates, [start_of_week]) → Date</td><td>Returns the first date of the week for the specified date. <br/><strong>Use:</strong> Finding the start date of the week.</td></tr>
+                    <tr><td><strong>⚡STARTOFMONTH</strong>(dates) → Date</td><td>Returns the first date of the month for the specified date. <br/><strong>Use:</strong> Finding the start date of the month.</td></tr>
+                    <tr><td><strong>⚡STARTOFQUARTER</strong>(dates) → Date</td><td>Returns the first date of the quarter for the specified date. <br/><strong>Use:</strong> Finding the start date of the quarter.</td></tr>
+                    <tr><td><strong>⚡STARTOFYEAR</strong>(dates) → Date</td><td>Returns the first date of the year for the specified date. <br/><strong>Use:</strong> Finding the start date of the year.</td></tr>
+                    <tr><td><strong>TOTALWTD</strong>(expression) → Numeric</td><td>Returns the total year-to-date (YTD) value for the given expression. <br/><strong>Use:</strong> Calculating totals for the current week.</td></tr>
+                    <tr><td><strong>⚡TOTALMTD</strong>(expression) → Numeric</td><td>Returns the total month-to-date (MTD) value for the given expression. <br/><strong>Use:</strong> Calculating totals for the current month.</td></tr>
+                    <tr><td><strong>⚡TOTALQTD</strong>(expression) → Numeric</td><td>Returns the total quarter-to-date (QTD) value for the given expression. <br/><strong>Use:</strong> Calculating totals for the current quarter.</td></tr>
+                    <tr><td><strong>⚡TOTALYTD</strong>(expression) → Numeric</td><td>Returns the total year-to-date (YTD) value for the given expression. <br/><strong>Use:</strong> Calculating totals for the current year.</td></tr>
+                </tbody>
+            </table>
         </div>
         <div id="template" class="page">
             <h1>Reusable Blocks</h1>
