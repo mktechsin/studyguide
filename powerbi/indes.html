@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Power BI Quick Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<button class="hamburger" onclick="toggleSidebar()">☰ Menu</button>
+
+<div class="container">
+    <div class="sidebar"><h3>📘 Notes</h3></div>
+    <div class="content">
+        <div class="topbar">
+            <input id="search" placeholder="Search...">
+            <button onclick="toggleDark()">🌙</button>
+            <button onclick="window.print()">📄 PDF</button>
+        </div>
+
+        <div id="toc-container">
+            <button id="toc-toggle">Show TOC ▼</button>
+            <div id="toc" style="display:none; padding:5px;"></div>
+        </div>
+
+        <!-- Pages -->
+        <div id="home" class="page active"><h1>Welcome</h1><p>This is Power BI guide. Use the sidebar to navigate.</p></div>
+        <div id="powerbi" class="page" contenteditable="true">
+            <h1>Power BI Notes</h1>
+            <div class="box warning">Refresh schedule is important for dashboards.</div>
+        </div>
+        <div id="template" class="page">
+            <h1>Reusable Blocks</h1>
+            <div class="section">Click buttons → then go to notes page → paste</div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

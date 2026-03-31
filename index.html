@@ -7,43 +7,14 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div>
-studyguides/
-│
-├─ index.html
-├─ css/
-│   └─ style.css
-├─ js/
-│   └─ script.js
-├─ guides/
-│   ├─ powerbi.html
-│   ├─ azure.html
-│   └─ sql.html
-└─ template/
-    └─ reusable-blocks.html
+<div class="content" style="padding:50px; text-align:center;">
+    <h1>Quick Guides Landing Page</h1>
+    <p>Select a guide to explore:</p>
+    <ul style="list-style:none; font-size:1.2em;">
+        <li><a href="powerbi/">📊 Power BI Guide</a></li>
+        <li><a href="azure/">☁️ Azure Guide</a></li>
+        <li><a href="sql/">🗄 SQL Guide</a></li>
+    </ul>
 </div>
-
-<button class="hamburger" onclick="toggleSidebar()">☰ Menu</button>
-
-<div class="container">
-    <div class="sidebar"><h3>📘 Notes</h3></div>
-    <div class="content">
-        <div class="topbar">
-            <input id="search" placeholder="Search...">
-            <button onclick="toggleDark()">🌙</button>
-            <button onclick="window.print()">📄 PDF</button>
-        </div>
-
-        <div id="toc-container">
-            <button id="toc-toggle">Show TOC ▼</button>
-            <div id="toc" style="display:none; padding:5px;"></div>
-        </div>
-
-        <div id="pages-container"></div>
-    </div>
-</div>
-
-<script src="js/script.js"></script>
 </body>
 </html>
