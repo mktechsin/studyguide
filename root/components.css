@@ -1,0 +1,229 @@
+/* ============================================================
+   NOTES SITE — Components
+   ============================================================ */
+
+/* ── Base callout ─────────────────────────────────────────── */
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border-left: 4px solid;
+  margin: 20px 0;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.callout-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.callout-body { flex: 1; min-width: 0; }
+
+.callout-title {
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+/* ── Note ─────────────────────────────────────────────────── */
+.note {
+  background: var(--note-bg);
+  border-color: var(--note-border);
+  color: var(--note-text);
+}
+
+/* ── Warning ──────────────────────────────────────────────── */
+.warning {
+  background: var(--warn-bg);
+  border-color: var(--warn-border);
+  color: var(--warn-text);
+}
+
+/* ── Error / Danger ───────────────────────────────────────── */
+.error {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
+}
+
+/* ── Tip ──────────────────────────────────────────────────── */
+.tip {
+  background: #f0faf2;
+  border-color: #5cb87a;
+  color: #1d5c30;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tip {
+    background: #0d1f12;
+    border-color: #2a6b40;
+    color: #6abf82;
+  }
+}
+
+/* ── Highlight ────────────────────────────────────────────── */
+mark, .highlight {
+  background: var(--hl-bg);
+  border-bottom: 2px solid var(--hl-border);
+  color: var(--text);
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+/* ── Inline code ──────────────────────────────────────────── */
+code:not(.code-block code) {
+  font-family: var(--font-mono);
+  font-size: .82em;
+  background: var(--bg-active);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent-text);
+}
+
+/* ── Code block ───────────────────────────────────────────── */
+.code-block {
+  background: var(--code-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: var(--shadow-sm);
+  font-size: .85rem;
+}
+
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--code-toolbar);
+  padding: 8px 14px;
+  gap: 10px;
+}
+
+.code-lang {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: #888;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.copy-btn {
+  font-family: var(--font-body);
+  font-size: .75rem;
+  color: #aaa;
+  background: none;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  color: #fff;
+  border-color: #666;
+  background: rgba(255,255,255,.05);
+}
+
+.copy-btn.copied {
+  color: #6abf82;
+  border-color: #6abf82;
+}
+
+.code-block pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 16px;
+}
+
+.code-block code {
+  font-family: var(--font-mono) !important;
+  color: var(--code-text);
+  line-height: 1.7;
+  display: block;
+}
+
+/* Scrollbar inside code */
+.code-block pre::-webkit-scrollbar { height: 4px; }
+.code-block pre::-webkit-scrollbar-track { background: transparent; }
+.code-block pre::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+
+/* ── Step / numbered callout ──────────────────────────────── */
+.steps { counter-reset: step; margin: 20px 0; }
+
+.step {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: .8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+/* ── Keyboard shortcut ────────────────────────────────────── */
+kbd {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .78em;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 2px 7px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Badge ────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.badge-blue   { background: var(--note-bg);  color: var(--note-text);  border-color: var(--note-border);  }
+.badge-yellow { background: var(--warn-bg);  color: var(--warn-text);  border-color: var(--warn-border);  }
+.badge-red    { background: var(--error-bg); color: var(--error-text); border-color: var(--error-border); }
+.badge-green  { background: #f0faf2; color: #1d5c30; border-color: #5cb87a; }
+
+@media (prefers-color-scheme: dark) {
+  .badge-green { background: #0d1f12; color: #6abf82; border-color: #2a6b40; }
+}
+
+/* ── Definition / term ────────────────────────────────────── */
+.def {
+  border-left: 3px solid var(--border);
+  padding: 8px 14px;
+  margin: 16px 0;
+  background: var(--bg-card);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.def dt { font-weight: 600; margin-bottom: 4px; }
+.def dd { color: var(--text-muted); font-size: .9rem; margin-left: 0; }

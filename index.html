@@ -1,20 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Quick Guides</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Notes</title>
+  <link rel="stylesheet" href="root/style.css" />
+  <link rel="stylesheet" href="root/components.css" />
+  <style>
+    body { display: block; }
+
+    .home-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .home-hero {
+      margin-bottom: 56px;
+    }
+
+    .home-hero h1 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .home-hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .sites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .site-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .site-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .site-card-icon { font-size: 2rem; }
+
+    .site-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .site-card-desc {
+      font-size: .87rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .site-card-pages {
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: .75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .home-wrap { padding: 40px 20px 60px; }
+      .home-hero h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-<div class="content" style="padding:50px; text-align:center;">
-    <h1>Quick Guides Landing Page</h1>
-    <p>Select a guide to explore:</p>
-    <ul style="list-style:none; font-size:1.2em;">
-        <li><a href="sites/powerbi/">📊 Power BI Guide</a></li>
-        <li><a href="sites/azure/">☁️ Azure Guide</a></li>
-        <li><a href="sites/sql/">🗄 SQL Guide</a></li>
-    </ul>
-</div>
+
+  <div class="home-wrap">
+    <div class="home-hero">
+      <h1>My Learning Notes</h1>
+      <p>A personal knowledge base for topics I'm actively studying. Pick a subject below to start reading.</p>
+    </div>
+
+    <div class="sites-grid">
+
+      <a href="sites/powerbi/index.html" class="site-card">
+        <span class="site-card-icon">📊</span>
+        <div class="site-card-title">Power BI</div>
+        <div class="site-card-desc">Data modeling, DAX, visuals, and publishing reports to the Power BI Service.</div>
+        <div class="site-card-pages">5 pages · Data & Analytics</div>
+      </a>
+
+      <a href="sites/sql/index.html" class="site-card">
+        <span class="site-card-icon">🗄️</span>
+        <div class="site-card-title">SQL</div>
+        <div class="site-card-desc">Queries, joins, aggregations, window functions, and database fundamentals.</div>
+        <div class="site-card-pages">5 pages · Databases</div>
+      </a>
+
+      <!-- Add more site cards here as you expand -->
+
+    </div>
+  </div>
+
 </body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI — DAX Basics</title>
+  <link rel="stylesheet" href="../../../root/style.css" />
+  <link rel="stylesheet" href="../../../root/components.css" />
+</head>
+<body>
+
+  <div id="topbar">
+    <button id="sidebar-toggle" aria-label="Toggle sidebar">☰ Menu</button>
+    <span id="topbar-title"></span>
+  </div>
+
+  <div id="overlay"></div>
+
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <a id="sidebar-site-title" href="../index.html">Power BI</a>
+      <span id="sidebar-site-sub">Learning Notes</span>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">Pages</span>
+      <ul class="sidebar-nav-list" id="page-nav">
+        <li><a href="../index.html">📄 Introduction</a></li>
+        <li><a href="data-modeling.html">🗂️ Data Modeling</a></li>
+        <li><a href="dax-basics.html">🔢 DAX Basics</a></li>
+        <li><a href="visuals.html">📊 Visuals & Charts</a></li>
+        <li><a href="publishing.html">🚀 Publishing</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">On this page</span>
+      <ul id="toc-list"></ul>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div id="content">
+
+      <h1>DAX Basics</h1>
+      <p class="page-meta">Formulas & measures · 8 min read</p>
+
+      <p><strong>DAX</strong> (Data Analysis Expressions) is the formula language used in Power BI to create calculated columns, measures, and tables. It looks similar to Excel formulas but is designed for relational data.</p>
+
+      <div class="callout note">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          <div class="callout-title">Note</div>
+          Measures are calculated <em>at query time</em> based on filter context. Calculated columns are evaluated row-by-row when data is loaded.
+        </div>
+      </div>
+
+      <h2>Measures vs Calculated Columns</h2>
+
+      <dl class="def">
+        <dt>Measure</dt>
+        <dd>A dynamic formula evaluated in the context of filters and slicers. Lives in a table but has no physical column. Use for aggregations.</dd>
+      </dl>
+
+      <dl class="def">
+        <dt>Calculated Column</dt>
+        <dd>A column added to a table during data refresh. Evaluated row-by-row. Consumes memory. Use sparingly — prefer Power Query transforms.</dd>
+      </dl>
+
+      <h2>Essential Functions</h2>
+
+      <h3>SUM and SUMX</h3>
+
+      <div class="code-block">
+        <div class="code-toolbar">
+          <span class="code-lang">DAX</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>-- Simple aggregation
+Total Sales = SUM(Sales[Amount])
+
+-- Iterator: evaluates expression row-by-row then aggregates
+Total Revenue = SUMX(
+    Sales,
+    Sales[Quantity] * Sales[UnitPrice]
+)</code></pre>
+      </div>
+
+      <h3>CALCULATE</h3>
+
+      <p><code>CALCULATE</code> is the most powerful DAX function — it evaluates an expression in a <mark>modified filter context</mark>.</p>
+
+      <div class="code-block">
+        <div class="code-toolbar">
+          <span class="code-lang">DAX</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>-- Sales for a specific region, ignoring any region filter on the page
+East Sales = CALCULATE(
+    [Total Sales],
+    Sales[Region] = "East"
+)
+
+-- Remove all filters from a column
+All Products Sales = CALCULATE(
+    [Total Sales],
+    ALL(Products[Category])
+)</code></pre>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Common Pitfall</div>
+          Calculated columns inside <code>CALCULATE</code> don't work the way you expect. Always use measures inside CALCULATE's filter arguments.
+        </div>
+      </div>
+
+      <h3>Time Intelligence</h3>
+
+      <div class="code-block">
+        <div class="code-toolbar">
+          <span class="code-lang">DAX</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>Sales YTD = TOTALYTD([Total Sales], 'Date'[Date])
+
+Sales LY  = CALCULATE(
+    [Total Sales],
+    SAMEPERIODLASTYEAR('Date'[Date])
+)
+
+YoY % = DIVIDE(
+    [Total Sales] - [Sales LY],
+    [Sales LY],
+    0   -- return 0 if denominator is blank
+)</code></pre>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div class="callout-body">
+          <div class="callout-title">Tip</div>
+          Time intelligence functions require a proper <strong>Date table</strong> marked as such in your model. Always build one — don't rely on auto date/time.
+        </div>
+      </div>
+
+      <h2>DIVIDE vs /</h2>
+
+      <p>Always use <code>DIVIDE(numerator, denominator, alternateResult)</code> instead of the <code>/</code> operator. It safely handles division by zero and blank denominators without throwing an error.</p>
+
+      <h2>Variables in DAX</h2>
+
+      <p>Use <code>VAR</code> to improve readability and performance — variables are evaluated only once.</p>
+
+      <div class="code-block">
+        <div class="code-toolbar">
+          <span class="code-lang">DAX</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>Profit Margin % =
+VAR TotalSales  = [Total Sales]
+VAR TotalCost   = [Total Cost]
+VAR Profit      = TotalSales - TotalCost
+RETURN
+    DIVIDE(Profit, TotalSales, 0)</code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../../root/core.js"></script>
+</body>
+</html>

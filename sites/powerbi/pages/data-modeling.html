@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI — Data Modeling</title>
+  <link rel="stylesheet" href="../../../root/style.css" />
+  <link rel="stylesheet" href="../../../root/components.css" />
+</head>
+<body>
+
+  <div id="topbar">
+    <button id="sidebar-toggle" aria-label="Toggle sidebar">☰ Menu</button>
+    <span id="topbar-title"></span>
+  </div>
+
+  <div id="overlay"></div>
+
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <a id="sidebar-site-title" href="../index.html">Power BI</a>
+      <span id="sidebar-site-sub">Learning Notes</span>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">Pages</span>
+      <ul class="sidebar-nav-list" id="page-nav">
+        <li><a href="../index.html">📄 Introduction</a></li>
+        <li><a href="data-modeling.html">🗂️ Data Modeling</a></li>
+        <li><a href="dax-basics.html">🔢 DAX Basics</a></li>
+        <li><a href="visuals.html">📊 Visuals & Charts</a></li>
+        <li><a href="publishing.html">🚀 Publishing</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">On this page</span>
+      <ul id="toc-list"></ul>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div id="content">
+
+      <h1>Data Modeling</h1>
+      <p class="page-meta">Schema design & relationships · 6 min read</p>
+
+      <p>A well-designed data model is the foundation of every fast, accurate Power BI report. The goal is a clean <mark>star schema</mark> with fact tables at the center and dimension tables around them.</p>
+
+      <h2>Star Schema</h2>
+
+      <p>A star schema separates your data into two types of tables:</p>
+
+      <ul>
+        <li><strong>Fact tables</strong> — contain measurable events (sales, orders, transactions). Wide, many rows.</li>
+        <li><strong>Dimension tables</strong> — contain descriptive attributes (customers, products, dates). Narrower, fewer rows.</li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div class="callout-body">
+          <div class="callout-title">Design Rule</div>
+          Aim for a single fact table per subject area. Avoid many-to-many relationships where possible — they complicate DAX and can cause double-counting.
+        </div>
+      </div>
+
+      <h2>Relationships</h2>
+
+      <p>Relationships in Power BI connect tables on a common key column. They always flow from the <strong>one</strong> side (dimension) to the <strong>many</strong> side (fact).</p>
+
+      <table>
+        <thead>
+          <tr><th>Setting</th><th>Options</th><th>Recommendation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cardinality</td><td>One-to-many, Many-to-many, One-to-one</td><td>One-to-many preferred</td></tr>
+          <tr><td>Cross-filter direction</td><td>Single, Both</td><td>Single (use Both sparingly)</td></tr>
+          <tr><td>Active / Inactive</td><td>Active, Inactive</td><td>Only one active path between tables</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Warning</div>
+          Bidirectional cross-filtering can cause ambiguous filter paths and slow query performance. Enable it only when you have a specific reason.
+        </div>
+      </div>
+
+      <h2>The Date Table</h2>
+
+      <p>Every Power BI model that uses time intelligence must have a dedicated Date table. Here's a minimal DAX Date table:</p>
+
+      <div class="code-block">
+        <div class="code-toolbar">
+          <span class="code-lang">DAX</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>Date =
+VAR StartDate = DATE(2020, 1, 1)
+VAR EndDate   = TODAY()
+RETURN
+ADDCOLUMNS(
+    CALENDAR(StartDate, EndDate),
+    "Year",        YEAR([Date]),
+    "Month",       MONTH([Date]),
+    "Month Name",  FORMAT([Date], "MMMM"),
+    "Quarter",     "Q" & QUARTER([Date]),
+    "Week",        WEEKNUM([Date]),
+    "Day Name",    FORMAT([Date], "dddd"),
+    "Is Weekend",  WEEKDAY([Date], 2) >= 6
+)</code></pre>
+      </div>
+
+      <h3>After creating the table</h3>
+
+      <ol>
+        <li>Go to <strong>Table tools → Mark as date table</strong> and select the <code>Date</code> column.</li>
+        <li>Create a relationship from <code>Date[Date]</code> to your fact table's date column.</li>
+        <li>Disable Power BI's auto date/time in <strong>File → Options → Data Load</strong>.</li>
+      </ol>
+
+      <h2>Calculated Tables</h2>
+
+      <p>Sometimes you need a helper table generated from DAX rather than loaded from a source.</p>
+
+      <div class="code-block">
+        <div class="code-toolbar">
+          <span class="code-lang">DAX</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>-- A disconnected slicer table for metric selection
+Metric Selector = DATATABLE(
+    "Metric Name", STRING,
+    "Metric Key",  STRING,
+    {
+        {"Total Sales",    "sales"},
+        {"Total Cost",     "cost"},
+        {"Profit Margin",  "margin"}
+    }
+)</code></pre>
+      </div>
+
+      <div class="callout error">
+        <span class="callout-icon">🚫</span>
+        <div class="callout-body">
+          <div class="callout-title">Avoid</div>
+          Don't merge tables in Power Query just to avoid relationships. A proper star schema with relationships is almost always faster and more maintainable.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../../root/core.js"></script>
+</body>
+</html>
