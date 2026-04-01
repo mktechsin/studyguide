@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Title</title> <!-- Site Title -->
+  <link rel="stylesheet" href="../../../root/style.css" />
+  <link rel="stylesheet" href="../../../root/components.css" />
+</head>
+<body>
+
+  <!-- Mobile topbar -->
+  <div id="topbar">
+    <button id="sidebar-toggle" aria-label="Toggle sidebar">☰ Menu</button>
+    <span id="topbar-title"></span>
+  </div>
+
+  <div id="overlay"></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <a id="sidebar-site-title" href="welcome.html">Site Title</a> <!-- Sidebar Title -->
+      <span id="sidebar-site-sub">Site Sub Title</span> <!-- Sidebar Sub Title -->
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">Pages</span> <!-- Dont Change -->
+      <ul class="sidebar-nav-list" id="page-nav">
+        <li><a href="welcome.html">Page Title</a></li> <!-- Page Title -->
+        <li><a href="page2.html">Page Title</a></li> <!-- Page Title -->
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">On this page</span> <!-- Dont Change -->
+      <ul id="toc-list"></ul>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <div id="main">
+    <!-- Current Page Content -->
+    <div id="content">
+      <h1>Current Page Title</h1> <!-- Current Page Title -->
+      <p class="page-meta">Socratic questions · 5 min read</p> <!-- Current Page Meta -->
+
+      <div>Content</div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+
+  <script src="../../../root/core.js"></script>
+</body>
+</html>

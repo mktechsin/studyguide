@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Power BI — Introduction</title>
+  <meta http-equiv="refresh" content="2; url=./pages/welcome.html">
+  <title>Redirecting...</title> <!-- Site Title -->
+
   <link rel="stylesheet" href="../../root/style.css" />
   <link rel="stylesheet" href="../../root/components.css" />
 </head>
@@ -20,23 +22,19 @@
   <!-- Sidebar -->
   <nav id="sidebar">
     <div id="sidebar-header">
-      <a id="sidebar-site-title" href="index.html">Power BI</a>
-      <span id="sidebar-site-sub">Learning Notes</span>
+      <a id="sidebar-site-title" href="./pages/welcome.html">Loading...</a> <!-- Sidebar Title --> <!-- Add welcome page url -->
+      <span id="sidebar-site-sub">Loading...</span> <!-- Sidebar Sub Title -->
     </div>
 
     <div class="sidebar-section">
-      <span class="sidebar-section-label">Pages</span>
+      <span class="sidebar-section-label">Pages</span> <!-- Don't Change -->
       <ul class="sidebar-nav-list" id="page-nav">
-        <li><a href="index.html">📄 Introduction</a></li>
-        <li><a href="pages/data-modeling.html">🗂️ Data Modeling</a></li>
-        <li><a href="pages/dax-basics.html">🔢 DAX Basics</a></li>
-        <li><a href="pages/visuals.html">📊 Visuals & Charts</a></li>
-        <li><a href="pages/publishing.html">🚀 Publishing</a></li>
+        <li><a href="pages/welcome.html">Loading...</a></li> <!-- Page Title -->
       </ul>
     </div>
 
     <div class="sidebar-section">
-      <span class="sidebar-section-label">On this page</span>
+      <span class="sidebar-section-label">On this page</span> <!-- Don't Change -->
       <ul id="toc-list"></ul>
     </div>
   </nav>
@@ -44,130 +42,10 @@
   <!-- Main -->
   <div id="main">
     <div id="content">
+      <h1>Loading...</h1> <!-- Current Page Title -->
+      <p class="page-meta">Loading... · ... min read</p> <!-- Current Page Meta -->
 
-      <h1>Introduction to Power BI</h1>
-      <p class="page-meta">Getting started · 5 min read</p>
-
-      <p>Power BI is Microsoft's business analytics platform that lets you connect to hundreds of data sources, create interactive reports, and share insights across your organisation.</p>
-
-      <div class="callout note">
-        <span class="callout-icon">ℹ️</span>
-        <div class="callout-body">
-          <div class="callout-title">Note</div>
-          Power BI Desktop is free to download. A Pro or Premium licence is required to publish and share reports with others.
-        </div>
-      </div>
-
-      <h2>Key Components</h2>
-
-      <p>The Power BI ecosystem has three main parts you'll interact with regularly:</p>
-
-      <ul>
-        <li><strong>Power BI Desktop</strong> — The Windows app where you build reports and models.</li>
-        <li><strong>Power BI Service</strong> — The web portal (app.powerbi.com) for sharing and collaboration.</li>
-        <li><strong>Power BI Mobile</strong> — iOS and Android apps for consuming reports on the go.</li>
-      </ul>
-
-      <h2>The Workflow</h2>
-
-      <div class="steps">
-        <div class="step"><p><strong>Connect</strong> to your data source (Excel, SQL Server, SharePoint, APIs, etc.)</p></div>
-        <div class="step"><p><strong>Transform</strong> the data using Power Query to clean and shape it.</p></div>
-        <div class="step"><p><strong>Model</strong> by defining relationships between tables and writing DAX measures.</p></div>
-        <div class="step"><p><strong>Visualise</strong> by dragging fields onto a canvas and choosing the right chart types.</p></div>
-        <div class="step"><p><strong>Publish</strong> to the Power BI Service and share with stakeholders.</p></div>
-      </div>
-
-      <h2>Supported Data Sources</h2>
-
-      <table>
-        <thead>
-          <tr><th>Category</th><th>Examples</th><th>Connection Type</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Files</td><td>Excel, CSV, JSON</td><td>Import / DirectQuery</td></tr>
-          <tr><td>Databases</td><td>SQL Server, PostgreSQL</td><td>Import / DirectQuery / Live</td></tr>
-          <tr><td>Cloud</td><td>Azure, Snowflake, BigQuery</td><td>DirectQuery</td></tr>
-          <tr><td>Services</td><td>SharePoint, Salesforce</td><td>Import</td></tr>
-        </tbody>
-      </table>
-
-      <h2>Import vs DirectQuery</h2>
-
-      <p>Choosing between Import mode and DirectQuery is one of the first decisions you'll make.</p>
-
-      <div class="callout warning">
-        <span class="callout-icon">⚠️</span>
-        <div class="callout-body">
-          <div class="callout-title">Warning</div>
-          DirectQuery reports can be slow if the underlying database isn't optimised. Always benchmark before choosing this mode for large datasets.
-        </div>
-      </div>
-
-      <h3>Import Mode</h3>
-      <p>Data is loaded into Power BI's in-memory engine (VertiPaq). Reports are fast but data is a snapshot — you need to refresh to get updates.</p>
-
-      <h3>DirectQuery Mode</h3>
-      <p>Every interaction queries the source database live. Always up-to-date but performance depends on your database.</p>
-
-      <h2>Your First M Query</h2>
-
-      <p>Power Query uses the <mark>M language</mark> under the hood. Here's a simple example that loads a CSV and filters it:</p>
-
-      <div class="code-block">
-        <div class="code-toolbar">
-          <span class="code-lang">M (Power Query)</span>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <pre><code>let
-    Source    = Csv.Document(File.Contents("C:\data\sales.csv"), [Delimiter=","]),
-    Headers   = Table.PromoteHeaders(Source),
-    Typed     = Table.TransformColumnTypes(Headers, {
-                    {"Date", type date},
-                    {"Amount", type number}
-                }),
-    Filtered  = Table.SelectRows(Typed, each [Amount] > 0)
-in
-    Filtered</code></pre>
-      </div>
-
-      <div class="callout error">
-        <span class="callout-icon">🚫</span>
-        <div class="callout-body">
-          <div class="callout-title">Common Mistake</div>
-          Hardcoding file paths like <code>C:\data\sales.csv</code> will break when other users open the report. Use parameters or relative paths instead.
-        </div>
-      </div>
-
-      <h2>Useful Keyboard Shortcuts</h2>
-
-      <p>Speed up your workflow in Power BI Desktop:</p>
-
-      <ul>
-        <li><kbd>Ctrl</kbd> + <kbd>Z</kbd> — Undo</li>
-        <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd> — Commit DAX formula</li>
-        <li><kbd>Alt</kbd> + <kbd>F4</kbd> — Close</li>
-        <li><kbd>F5</kbd> — Refresh data</li>
-      </ul>
-
-      <h2>Status Badges</h2>
-
-      <p>Use these in your own notes to mark page status:</p>
-
-      <p>
-        <span class="badge badge-green">✓ Complete</span>&nbsp;
-        <span class="badge badge-yellow">⚡ In Progress</span>&nbsp;
-        <span class="badge badge-blue">ℹ Draft</span>&nbsp;
-        <span class="badge badge-red">⚠ Needs Review</span>
-      </p>
-
-      <div class="callout tip">
-        <span class="callout-icon">💡</span>
-        <div class="callout-body">
-          <div class="callout-title">Tip</div>
-          Bookmark this page and use the sidebar to navigate between topics. The <strong>On this page</strong> section above auto-updates as you scroll.
-        </div>
-      </div>
+      <div>Loading...</div>
 
     </div><!-- /content -->
   </div><!-- /main -->
