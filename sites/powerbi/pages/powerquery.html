@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../root/style.css" />
+  <link rel="stylesheet" href="../../../root/components.css" />
+
+  <script>
+    // Define variables once
+    const siteName = "Power BI";
+    const sidebarSubTitle = "Socratic study guide";
+    document.title = siteName; //Updates the browser tab title
+  </script>
+
+</head>
+<body>
+
+  <!-- Mobile topbar -->
+  <div id="topbar">
+    <button id="sidebar-toggle" aria-label="Toggle sidebar">☰ Menu</button>
+    <span id="topbar-title"></span>
+  </div>
+
+  <div id="overlay"></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <a id="sidebar-site-title" href="welcome.html"><script>document.write(siteName)</script></a> <!-- Sidebar Title -->
+      <span id="sidebar-site-sub"><script>document.write(sidebarSubTitle)</script></span> <!-- Sidebar Sub Title -->
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">Pages</span> <!-- Dont Change -->
+      <ul class="sidebar-nav-list" id="page-nav">
+        <li><a href="welcome.html">Basic Understanding</a></li> <!-- Page Title -->
+        <li><a href="powerquery.html">Power Query</a></li> <!-- Page Title -->
+        <li><a href="dax.html">Dax</a></li> <!-- Page Title -->
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-section-label">On this page</span> <!-- Dont Change -->
+      <ul id="toc-list"></ul>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <div id="main">
+    <!-- Current Page Content -->
+    <div id="content">
+      <h1>Power Query</h1> <!-- Current Page Title -->
+        <p class="page-meta">Socratic questions · 5 min read</p> <!-- Current Page Meta -->
+
+        <h2>Data Cleaning & Transformation</h2>
+          <h3>Messy excel data</h3>
+              <div>What are common <strong>pitfalls</strong>?</div>
+              <div>How to <strong>explore data</strong> in Power Query?</div>
+              <div>How to handle <strong>mixed data types</strong> in Power Query?</div>
+              <div>How to handle <strong>missing, null values</strong> in Power Query?</div>
+              <div>How to handle <strong>exact, or partial duplicates</strong> in Power Query?</div>
+              <div>How to handle <strong>inconsistent formatting</strong> in Power Query?</div>
+              <div>How to handle <strong>structural issues</strong> in Power Query?</div>
+              <div>How to handle <strong>relationship</strong> in Power Query?</div>
+              <div>How to handle <strong>date & time</strong> in Power Query?</div>
+              <div>How to handle <strong>outlier & data validity</strong> in Power Query?</div>
+              <div>How to handle <strong>consistency across recurring Excel files</strong> in Power Query?</div>
+              <div>How to handle <strong>error</strong> in Power Query?</div>
+
+            <h3>Null, error handling</h3>
+              <div>What exactly is the difference between <strong>null, "", " "</strong> in Power Query?</div>
+              <div>What is the difference between <strong>null, Null, NULL, "", " ", #N/A, =NA(), Blank cell</strong> in Excel?</div>
+              <div>What kind of <strong>errors</strong> occurs in Power Query?</div>
+              <div>Where to fix <strong>errors</strong>, replace in Power Query, fix at source, or propagate them?</div>
+
+              <br/><h4>Transformation order</h4>
+                <div>What happens if you <strong>change transformation order</strong> in Power Query?</div>
+                <div>Which order prevents cascading errors in Power Query? <strong>1.Change data type -> Handle errors, 2.Handle errors -> Change data type</strong></div>
+
+              <br/><h4>Logic design</h4>
+                <div>What happens if you <strong>add null + number</strong> in Power Query?</div>
+                <div>What should <strong>null become 0, or stay null</strong> in Power Query?</div>
+
+              <br/><h4>Edge case</h4>
+                <div>What if column contains <strong>"N/A", #N/A, "-", " ", "", "Nil"</strong> at source?</div>
+                <div>What will return comparing null like <strong>null = null, null <> null, null > number</strong> in Power Query?</div>
+                <div>What is correct way for checking if column value is <strong>null</strong> in Power Query?</div>
+                <div>What is <strong>"is null", "is not null"</strong> in Power Query?</div>
+
+          <h3>Data type issues</h3>
+            <div>What are the <strong>signs</strong> of column having wrong data type?</div>
+            <div>When to <strong>change</strong> data type early or later in Power Query? Why?</div>
+            <div>How incorrect data types affects <strong>joins and aggregations</strong> in Power Query?</div>
+            <div>What happens if new data introduces <strong>unexpected formats</strong> in Power Query?</div>
+
+        <h2>Data Shaping and Modelling</h2>
+          <h3>Unpivoting scenario</h3>
+            <div>What is <strong>wide, long format</strong>?</div>
+            <div>What problems does <strong>pivoted</strong> data cause for reporting?</div>
+            <div>How would <strong>unpivoting</strong> change the model?</div>
+            <div>Which column should remain <strong>fixed (identifiers)</strong>, and which should be <strong>unpivoted</strong>?</div>
+            <div>What are different <strong>unpivoting</strong> options in Power Query? When to use them?</div>
+            <div>What happens if new data contains <strong>new column</strong>?</div>
+            <div>How are new <strong>columns represented</strong> after unpivoting in Power Query?</div>
+            <div>What does <strong>Attribute and Value</strong> means in unpivoting?</div>
+            <div>Does the <strong>total number of records</strong> makes sense after unpivoting?</div>
+            <div>How to <strong>trace a value</strong> from the original table to its new position?</div>
+            <div>Why many data models prefers <strong>"long" (normalized)</strong> format?</div>
+            <div>When might <strong>not unpivoting</strong> actually be the better choice?</div>
+          
+          <h3>Merging queries</h3>
+            <div>What factors influence choice of <strong>join type</strong>?</div>
+            <div>Is the <strong>relationship</strong> one-to-one, one-to-many, or many-to-many?</div>
+            <div>Do both tables use the same <strong>data type</strong> for the join column?</div>
+            <div>How to handle if <strong>duplicates, nulls, inconsistencies in keys</strong> exists?</div>
+            <div>How to detect <strong>mismatched keys</strong> between tables?</div>
+            <div>What happens to rows that don't have <strong>matching keys</strong>?</div>
+            <div>How to validate <strong>merge</strong>?</div>
+          
+          <h3>Append</h3>
+            <div>How to choose between <strong>append and merge</strong>?</div>
+            <div>How to handle <strong>schema change</strong> with new data?</div>
+
+        <h2>Performance Optimization</h2>
+          <div>What is <strong>Query Diagnostics</strong>?</div>
+          <h3>Slow refresh</h3>
+            <div>How to identify <strong>slowest step</strong>?</div>
+            <div>What is the role of <strong>query folding</strong>?</div>
+            <div>Which step <strong>breaks query folding</strong>?</div>
+            <div>Are there steps that <strong>repeatedly</strong> scan or recalculate the data?</div>
+            <div>Are data beign loaded more than required?</div>
+            <div>Are merges or joins performed on large data?</div>
+            <div>Are joins keys indexed or optimized at source?</div>
+            <div>Are there expensive steps like row-by-row calculations, custom columns, or text parsing?</div>
+            <div>Are there unwanted step, or repeated conversion that can be removed?</div>
+            <div>Is the connection mode correct for current usecase?</div>
+            <div>Would incremental refresh reduce load time?</div>
+            <div>How often does data refresh is needed?</div>
+          
+          <h3>Large dataset handling</h3>
+            <div>What strategy to use to <strong>reduce data volume</strong> early?</div>
+            <div>How does filtering <strong>early vs later</strong> effect performance?</div>
+            <div>When to push logic back to <strong>source system</strong>?</div>
+            <div>How would incremental refresh changes<strong>design</strong>?</div>
+            <div>Can dataset be <strong>break down</strong> into smaller, more manageable ones?</div>
+            <div>Can data <strong>filtered or aggregated</strong> before it enters Power Query?</div>
+            <div>Can <strong>data type</strong> changed to integer instead of text, or decimal, changed to date instead of datetime?</div>
+            <div>Would <strong>partitioning, or indexing at source</strong> level helps with performance?</div>
+            <div>How Power Query editor handles large data in <strong>memory</strong> - are there ways to minimize memory usage?</div>
+
+
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+
+  <script src="../../../root/core.js"></script>
+</body>
+</html>
