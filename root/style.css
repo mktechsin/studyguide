@@ -184,7 +184,7 @@ body {
 }
 
 /* sidebar sections */
-.sidebar-section { padding: 16px 0 8px; }
+.sidebar-section { padding: 16px 0 8px; border-bottom: 1px solid var(--border);}
 
 .sidebar-section-label {
   font-size: .68rem;

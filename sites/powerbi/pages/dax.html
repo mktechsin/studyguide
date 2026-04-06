@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site Title</title> <!-- Site Title -->
   <link rel="stylesheet" href="../../../root/style.css" />
   <link rel="stylesheet" href="../../../root/components.css" />
+  
+  <script>
+    // Define variables once
+    const siteName = "Power BI";
+    const sidebarSubTitle = "Socratic study guide";
+    document.title = siteName; //Updates the browser tab title
+  </script>
+
 </head>
 <body>
 
@@ -20,14 +27,15 @@
   <!-- Sidebar -->
   <nav id="sidebar">
     <div id="sidebar-header">
-      <a id="sidebar-site-title" href="welcome.html">Site Title</a> <!-- Sidebar Title -->
-      <span id="sidebar-site-sub">Site Sub Title</span> <!-- Sidebar Sub Title -->
+      <a id="sidebar-site-title" href="welcome.html"><script>document.write(siteName)</script></a> <!-- Sidebar Title -->
+      <span id="sidebar-site-sub"><script>document.write(sidebarSubTitle)</script></span> <!-- Sidebar Sub Title -->
     </div>
 
     <div class="sidebar-section">
       <span class="sidebar-section-label">Pages</span> <!-- Dont Change -->
       <ul class="sidebar-nav-list" id="page-nav">
         <li><a href="welcome.html">Basic Understanding</a></li> <!-- Page Title -->
+        <li><a href="powerquery.html">Power Query</a></li> <!-- Page Title -->
         <li><a href="dax.html">Dax</a></li> <!-- Page Title -->
       </ul>
     </div>

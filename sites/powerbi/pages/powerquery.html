@@ -73,6 +73,7 @@
               <div>What is the difference between <strong>null, Null, NULL, "", " ", #N/A, =NA(), Blank cell</strong> in Excel?</div>
               <div>What kind of <strong>errors</strong> occurs in Power Query?</div>
               <div>Where to fix <strong>errors</strong>, replace in Power Query, fix at source, or propagate them?</div>
+              <div>How to handle <strong>missing values</strong> - filled, flagged or removed?</div>
 
               <br/><h4>Transformation order</h4>
                 <div>What happens if you <strong>change transformation order</strong> in Power Query?</div>
@@ -148,6 +149,69 @@
             <div>Can <strong>data type</strong> changed to integer instead of text, or decimal, changed to date instead of datetime?</div>
             <div>Would <strong>partitioning, or indexing at source</strong> level helps with performance?</div>
             <div>How Power Query editor handles large data in <strong>memory</strong> - are there ways to minimize memory usage?</div>
+
+        <h2>Advanced Transformation</h2>
+          <h3>Dynamic File Processing</h3>
+            <div>How to autoamte <strong>file ingestion</strong>?</div>
+            <div>How to handle <strong>corrupted or missing</strong> file?</div>
+            <div>How to design for <strong>schema drift</strong>?</div>
+            <div>How Power BI handles loading files with <strong>different columns</strong> in a folder in Power Query Editor?</div>
+            <div>What if <strong>folder location</strong> changes?</div>
+
+          <h3>Custom Columns & M Language</h3>
+            <div>When to use <strong>UI vs M code</strong>?</div>
+            <div>How to debug <strong>M code</strong>?</div>
+
+        <h2>Data Governance & Reliability</h2>
+          <h3>Data Quality Checks</h3>
+            <div>Where to implement <strong>implement checks</strong> in Power Query, or elseware?</div>
+            <div>How to <strong>flag anomalies</strong> automatically in Power Query?</div>
+            <div>How to handle <strong>structure changes</strong> at data source?</div>
+            <div>How to build <strong>trust</strong> in dataset?</div>
+            <div>Should duplicate records <strong>removed, merged, or flagged</strong>?</div>
+            <div>Can data checks run <strong>automatically</strong> during refresh?</div>
+            
+            <br/><h4>Accuracy & validity</h4>
+            <div>Do values fall within <strong>expected range</strong>?</div>
+            <div>Are there <strong>invalid formats</strong> - like text in numeric fields, incorrect date formats?</div>
+            <div>How to validate that data <strong>matches business rules</strong>?</div>
+
+            <br/><h4>Consistency checks</h4>
+            <div>Are similar values represented <strong>consistently</strong>? - like "USA", "U.S.A."</div>
+            <div>Are <strong>related column values</strong> align logically? - like start date before end date</div>
+            <div>Are there values <strong>conflicting across different tables</strong>?</div>
+
+            <br/><h4>Referential integrity</h4>
+            <div>Do all <strong>foreign keys</strong> has matching values in related tables?</div>
+            <div>What happens to records that <strong>does not have a match</strong> in related table?</div>
+            <div>Are there <strong>orphaned record</strong> that could affect analysis?</div>
+
+            
+
+          <h3>Reusability & Maintainability</h3>
+            <div>How to structure queries for <strong>reuse</strong>?</div>
+            <div>How to reduce <strong>duplication of logic</strong>?</div>
+
+        <h2>Real-World Business Scenario</h2>
+          <h3>Changing Business Logic</h3>
+            <div>How to <strong>design transformation</strong> to accomodate change?</div>
+            <div>What part belongs to <strong>Power Query, and Dax</strong>?</div>
+            <div>How to <strong>minimize impact</strong> on existing report?</div>
+            <div>How to <strong>version control</strong> logic?</div>
+            
+          <h3>Data from Multiple Sources</h3>
+            <div>What challanges arise from <strong>heterogeneous</strong> sources?</div>
+            <div>How to <strong>standardize formats</strong> across sources?</div>
+            <div>What risks exist in <strong>refresh dependencies</strong>?</div>
+            <div>How to <strong>troubleshoot a failure</strong> in one source?</div>
+
+        <h2>Meta Thinking</h2>
+          <h3>Design Philosophy</h3>
+            <div>In poorly designed Power Query solution, what to review first - <strong>logic, performance, structure</strong>?</div>
+            <div>How to decide <strong>what to refactor vs keep</strong>?</div>
+            <div>How to balance <strong>quick fix vs long-term design</strong>?</div>
+          
+          
 
 
 
