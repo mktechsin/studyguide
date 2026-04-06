@@ -34,7 +34,8 @@
     <div class="sidebar-section">
       <span class="sidebar-section-label">Pages</span> <!-- Don't Change -->
       <ul class="sidebar-nav-list" id="page-nav">
-        <li><a href="welcome.html">Basic Understanding</a></li> <!-- Page Title -->
+        <li><a href="welcome.html">Welcome</a></li> <!-- Page Title -->
+        <li><a href="getdata.html">Get Data</a></li> <!-- Page Title -->
         <li><a href="powerquery.html">Power Query</a></li> <!-- Page Title -->
         <li><a href="dax.html">Dax</a></li> <!-- Page Title -->
       </ul>
@@ -76,6 +77,50 @@
       <div>What is <strong>deployment pipeline</strong>?</div>
       <div>What is <strong>Gateway</strong>?</div>
       <div>What are the <strong>tradeoffs, or pitfalls</strong>?</div>
+
+      <h2>Workflow</h2>
+        <div class="steps">
+          <div class="step">Connect</div>
+          <div class="step">Transform</div>
+          <div class="step">Data Model</div>
+          <div class="step">Visuals</div>
+          <div class="step">Publish</div>
+        </div>
+
+        <h2>Extensive workflow</h2>
+          <h3>Connect</h3>
+            <div class="steps">
+              <div class="step"><strong>Source types</strong> - Files, Databases, Power Platform, Online Services, Others, Enter data</div>
+              <div class="step"><strong>Connection</strong> - Data Source Settings
+                <ul>
+                  <li><strong>Location</strong>: Path / Server / URL</li>
+                  <li><strong>Object</strong>: Filename / Database / Semantic Model / API</li>
+                  <li><strong>Query</strong>: SQL statement / Stored Procedures / Table Valued Functions</li>
+                  <li><strong>Credentials</strong>: UName Pwd / Token / Keys / Signin / Anynomous</li>
+                  <li><strong>Privacy Level</strong>: Public / Organizational / Private</li>
+                </ul>
+              </div>
+              <div class="step"><strong>Connection Mode</strong> - Import / Direct Query / Live Connection</div>
+              <div class="step"><strong>Object Selection</strong> - Sheets / Table, Table / Views / Cube-Dimensions, Semantic Model / Dataflow</div>
+            </div>
+          <h3>Transform</h3>
+            <div class="steps">
+              <div class="step"><strong>Building Blocks</strong> - Table, List, Functions, Parameters</div>
+              <div class="step"><strong>Explore</strong> - Column Profile, Column Distribution, Column Quality</div>
+              <div class="step"><strong>Applied Steps</strong> - 
+                <ul>
+                  <li><strong>Manage Parameter</strong>: RangeStart/RangeEnd, FilePath/FolderPath, ServerName/DatabaseName, CutoffData/AsOfDate, Environment</li>
+                  <li><strong>Query</strong>: Enable Load, Duplicate, Reference, Convert to function/list</li>
+                  <li><strong>Table Transformations</strong>: Append, Merge, Group by, Transpose, 1st Row as Headers, Reverse Rows, Count Rows</li>
+                  <li><strong>Column Transformations</strong>: Data type, Rename, Pivot / Unpivot, Replace, Fill, Convert to List, Derived/Custom column, Conditional column, Duplicate column, Extract / Split / Merge, Format, Parse, Select / Remove, Transform, Lookup, Expand, Statistics, Rounding</li>
+                  <li><strong>Scripts</strong>: R, Python</li>
+                  <li><strong>Diagnostics</strong>: Start, Stop</li>
+                </ul>
+              </div>
+            </div>
+          <H3>Data Model</H3>
+          <H3>Visuals</H3>
+          <H3>Publish</H3>
 
       
       <!-- <div>How to handle huge <strong>volume</strong> of data in Power BI?</div>
