@@ -120,17 +120,88 @@
             </div>
           <H3>Data Model</H3>
             <div class="steps">
-              <div class="step"><strong>Building Blocks</strong> - Table / Calculated Table, Relationship, Direction, Storage Mode, Calculated Column, Data Type, Format, Sort By, Calculation Group, Partition, Perspectives, Hierarchy, Measures, User Defined Functions</div>
-              <div class="step"><strong>Storage Mode</strong> - Mode: Import / Direct Query / Dual, Conversions, Irreversible conversions</div>
-              <div class="step"><strong>Relationship</strong> - Type: One-to-One / One-to-Many / Many-to-Many, Direction: Single / Bi-directional</div>
+              <div class="step"><strong>Building Blocks</strong> - Layout, Calculation Group, Cultures, Expressions, Measures, Perspectives, Relationships, Roles, Tables</div>
+              <div class="step"><strong>Calculated Groups</strong> - 
+                <ul>
+                  <li><strong>Calculation group</strong>: Precedence, Key Column: Columns / Ordinal</li>
+                  <li><strong>Calculation group column</strong>: Column meta, Is nullable</li>
+                  <li><strong>Calculation items</strong>: Dynamic format string</li>
+                  <li><strong>Other columns</strong>: Column meta</li>
+                </ul>
+              </div>
+              <div class="step"><strong>Cultures</strong>: Language, translation, and regional settings</div>
+              <div class="step"><strong>Expressions</strong>: Related query</div>
+              <div class="step"><strong>Measures</strong>: Home table, Description, Synonyms, Dispaly folder, Is hiddes, Formatting, Data Category</div>
+              <div class="step"><strong>Perspectives</strong>: Using external tools - Tabular editor</div>
+              <div class="step"><strong>Relationships</strong>: Cardinality - One-to-One / One-to-Many / Many-to-Many, Make this relationship active, Cross-filter direction - Single / Both, Apply security filter in both directions, Assume referential integrity</div>
+              <div class="step"><strong>Roles</strong>: Manage roles - Role -> Table(s) -> Rule(s) (UI / Dax editor)-> Column / Condition / Value, View as</div>
+              <div class="step"><strong>Tables</strong> - 
+                <ul>
+                  <li><strong>Options</strong>: Edit Query, Incremental refresh, Manage Aggregations, Columns - Create Hierarchy, Show/Hide - Tables / Columns / Measures, Partitions, Functions</li>
+                  <li><strong>Incremental Refresh</strong>: Power Query Date/Time Parameters - RangeStart / RangeEnd, License - Anything but Free / Premium or PPU for real-time hybrid tables / Premium for incremental refresh with Dataflows, Settings - Archive data starting n Intervals before refresh date / Incremental refresh data n Intervals before refresh date / real-time DirectQuery Premium / Only refresh complete periods / Detect data changes</li>
+                  <li><strong>Manage Aggregations</strong>: </li>
+                  <li><strong>Partitions</strong>: Auto / Manual, Manual partitions using external tools - Tabular editor</li>
+                  <li><strong>Functions</strong>: User defined functions are managed in DAX Query View. Stored in functions.tmdl</li>
+                  <li><strong>Types</strong>: Query / Date Table / Calculated Table</li>
+                  <li><strong>Meta</strong>: Name, Description, Synonyms, Row label, Key column, Is hidden, Is featured table</li>
+                  <li><strong>Storage Mode</strong>: Import / Direct Query / Dual, Conversions, Irreversible conversions</li>
+                </ul>
+              </div>
               <div class="step"><strong>TMDL</strong> - </div>
               <div class="step"><strong>Query view</strong> - </div>
             </div>
           <H3>Visuals</H3>
             <div class="steps">
-              <div class="step"><strong>Building Blocks</strong> - </div>
+              <div class="step"><strong>Report view</strong> - 
+                <ul>
+                  <li><strong>Components</strong>: Themes, Pages - Format Page, Visuals / Custom visuals - Build Visual / Format Visual / Analytics, Filter pane, Slicer (Sync slicer)</li>
+                  <li><strong>Page</strong>: Page type: Report / Tooltip / Drillthrough - Cross report / Keep all filters</li>
+                </ul>
+              </div>
+              <div class="step"><strong>Visuals</strong> - 
+                <ul>
+                  <li><strong>Trend Analysis Charts</strong>: Line ( Area / Stacked / 100% stacked) / Combo (Line and stacked column / Line and clustered column)</li>
+                  <li><strong>Categorical Analysis Charts</strong>: Bar (Stacked / 100% Stacked / Clustered) / Column (Stacked / 100% Stacked / Clustered) / Decomposition</li>
+                  <li><strong>% of Total Analysis Charts</strong>: Pie / Donut / Treemap</li>
+                  <li><strong>Geographical Analysis Charts</strong>: Map / Filled / Azure maps / ArcGIS</li>
+                  <li><strong>KPI Analysis Charts</strong>: Card / KPI / Gauge</li>
+                  <li><strong>Correlation Charts</strong>: Scatter / Key influencers</li>
+                  <li><strong>Rank Charts</strong>: Ribbon / Waterfall / Funnel</li>
+                  <li><strong>Slicer Charts</strong>: Slicer / Button slicer / Input slicer / List slicer</li>
+                  <li><strong>Detail Charts</strong>: Table / Matrix</li>
+                  <li><strong>Other Language Charts</strong>: R / Python</li>
+                  <li><strong>Other Charts</strong>: Q&A / Narrative / Image</li>
+                  <li><strong>External</strong>: Paginated report / Power Apps / Power Automate</li>
+                </ul>
+              </div>
+              <div class="step"><strong>Visuals Options</strong> - 
+                <ul>
+                  <li><strong>Field well</strong>: Rows, Columns, X-axis, Y-axis, Category, Breakdown, Legend, Value, Location, Latitude, Longtitude, Size, Path ID, Point Order, Analyze, Explain by, Expand by</li>
+                  <li><strong>Visual calculation</strong>: </li>
+                  <li><strong>Legend</strong>: </li>
+                  <li><strong>Small multiples</strong>: </li>
+                  <li><strong>Tooltips</strong>: </li>
+                  <li><strong>Conditional formatting</strong>: Title, Text, Color, Background, Alt text, Axis Range - Min / Max, Icons, Web url</li>
+                  <li><strong>Data labels</strong>: Value field, Detail data field</li>
+                  <li><strong>Plot area</strong>: Background image</li>
+                  <li><strong>Table / Matrix</strong>: Sparklines</li>
+                  <li><strong>Options</strong>: Drill up, Drill down, Drill through, Show as table, Focus visual</li>
+                </ul>
+              </div>
+              <div class="step"><strong>Analytics</strong> - 
+                <ul>
+                  <li><strong>Constant line</strong>: </li>
+                  <li><strong>Min line</strong>: </li>
+                  <li><strong>Max line</strong>: </li>
+                  <li><strong>Average line</strong>: </li>
+                  <li><strong>Median line</strong>: </li>
+                  <li><strong>Percentile line</strong>: </li>
+                  <li><strong>Error bars</strong>: </li>
+                </ul>
+              </div>
             </div>
           <H3>Publish</H3>
+            Refresh Time Limit
             <div class="steps">
               <div class="step"><strong>Building Blocks</strong> - </div>
             </div>
